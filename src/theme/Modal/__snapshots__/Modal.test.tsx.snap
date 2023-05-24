@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly when there is default modal 1`] = `
+Array [
+  <div
+    className="modal"
+  >
+    <div
+      className="modal-body"
+    >
+      <div>
+        <h1>
+          Modal
+        </h1>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, labore.
+        </p>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="backdrop"
+    onClick={[MockFunction]}
+  />,
+]
+`;
+
+exports[`renders correctly when there is modal custom class 1`] = `
+Array [
+  <div
+    className="modal bg-green-100"
+  >
+    <div
+      className="modal-body"
+    >
+      <div>
+        <h1>
+          Modal
+        </h1>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, labore.
+        </p>
+      </div>
+    </div>
+  </div>,
+  <div
+    className="backdrop bg-blue-400/20"
+    onClick={[MockFunction]}
+  />,
+]
+`;
+
+exports[`renders correctly when there is modal with header and footer 1`] = `
+Array [
+  <div
+    className="modal"
+  >
+    <div
+      className="modal-header"
+    >
+      <h4>
+        Modal Header
+      </h4>
+      <button
+        className="btn p-1"
+        disabled={false}
+        onClick={[MockFunction]}
+        type="button"
+      >
+        <svg
+          fill="none"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M19.017 4l-7.034 7.025-7-6.992L4 5.017 11 12l-7 6.992.983.975 7-6.984L19.017 20l.983-.975L12.967 12 20 4.983 19.017 4z"
+            fill="#131722"
+          />
+        </svg>
+      </button>
+    </div>
+    <div
+      className="modal-body"
+    >
+      <div>
+        <h1>
+          Modal
+        </h1>
+        <p>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias, labore.
+        </p>
+      </div>
+    </div>
+    <div
+      className="modal-footer"
+    >
+      Modal Footer
+    </div>
+  </div>,
+  <div
+    className="backdrop"
+    onClick={[MockFunction]}
+  />,
+]
+`;

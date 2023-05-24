@@ -1,32 +1,6 @@
 import React from "react";
+import { ButtonProps } from "./type";
 import { formatClass } from "../../util/formatClass";
-
-type ButtonType = "button" | "submit" | "reset";
-
-type ButtonClassType = "btn-outlined" | "";
-
-type ClickHandlerType = React.MouseEventHandler<HTMLButtonElement>;
-
-type PropsType =
-  | string
-  | boolean
-  | undefined
-  | ButtonType
-  | React.ReactNode
-  | ClickHandlerType
-  | ButtonClassType
-  | React.CSSProperties;
-
-interface ButtonProps {
-  children: React.ReactNode;
-  type?: ButtonType;
-  onClick?: ClickHandlerType;
-  btnClass?: ButtonClassType;
-  className?: string;
-  style?: React.CSSProperties;
-  disabled?: boolean;
-  [key: string]: PropsType;
-}
 
 const Button: React.FC<ButtonProps> = ({
   children,
