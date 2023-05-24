@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React from "react";
 import SearchIcon from "../../components/SVG/SearchIcon";
 import { formatClass } from "../../util/formatClass";
 
