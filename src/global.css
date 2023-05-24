@@ -54,3 +54,15 @@
     @apply whitespace-nowrap text-ellipsis overflow-hidden;
   }
 }
+
+@layer components {
+  /* --------------- Button --------------- */
+
+  .btn {
+    @apply inline-block rounded cursor-pointer hover:bg-alice-blue;
+  }
+
+  .btn-outlined {
+    @apply block px-3 py-1 text-royal-blue border border-royal-blue rounded-lg hover:text-white hover:bg-royal-blue;
+  }
+}

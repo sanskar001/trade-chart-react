@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly when there is button with onclick handle 1`] = `
+<button
+  className="btn"
+  disabled={false}
+  onClick={[MockFunction]}
+  type="button"
+>
+  Default
+</button>
+`;
+
+exports[`renders correctly when there is default button 1`] = `
+<button
+  className="btn"
+  disabled={false}
+  type="button"
+>
+  Default
+</button>
+`;
+
+exports[`renders correctly when there is disabled outlined button 1`] = `
+<button
+  className="btn btn-outlined"
+  disabled={true}
+  type="button"
+>
+  Outlined Disabled
+</button>
+`;
+
+exports[`renders correctly when there is outlined button 1`] = `
+<button
+  className="btn btn-outlined"
+  disabled={false}
+  type="button"
+>
+  Outlined
+</button>
+`;
+
+exports[`renders correctly when there is styled button with custom class 1`] = `
+<button
+  className="btn text-green-600"
+  disabled={false}
+  style={
+    Object {
+      "fontStyle": "italic",
+      "padding": "20px",
+    }
+  }
+  type="button"
+>
+  Styled Button
+</button>
+`;
+
+exports[`renders correctly when there is submit button 1`] = `
+<button
+  className="btn"
+  disabled={false}
+  type="submit"
+>
+  Submit
+</button>
+`;
+
+exports[`renders correctly when there is title attribute 1`] = `
+<button
+  className="btn btn-outlined"
+  disabled={true}
+  title="Button Title"
+  type="button"
+>
+  Title
+</button>
+`;
