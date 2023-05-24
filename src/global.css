@@ -87,4 +87,14 @@
   .modal-footer {
     @apply text-center bg-baby-blue text-slate-gray text-sm py-2 px-5 rounded-b-lg;
   }
+
+  /* ---------------- Search Field ---------------- */
+
+  .search-field {
+    @apply flex items-center gap-2 border-y border-platinum px-5;
+  }
+
+  .search-field input {
+    @apply h-[40px] w-full text-lg placeholder:text-philippine-silver;
+  }
 }
