@@ -115,4 +115,30 @@
   .filter-tag input:checked + label {
     @apply bg-russian-black text-white;
   }
+
+  /* --------------------- Drop Down ------------------------ */
+
+  .drop-down {
+    @apply h-[36px] relative border border-blue-500;
+  }
+
+  .freq-option {
+    @apply h-full text-sm flex items-center;
+  }
+
+  .freq-option button {
+    @apply h-full px-[6px];
+  }
+
+  .freq-option .active {
+    @apply text-royal-blue font-medium;
+  }
+
+  .drop-down .down-arrow svg {
+    @apply transition;
+  }
+
+  .drop-down .down-arrow.expand svg {
+    @apply -rotate-180;
+  }
 }

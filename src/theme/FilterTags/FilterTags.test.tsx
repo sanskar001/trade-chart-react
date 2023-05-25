@@ -1,8 +1,8 @@
 import renderer from "react-test-renderer";
 import FilterTags from ".";
-import { Option } from "./type";
+import { FilterOption } from "./type";
 
-const filterOptions: Option[] = [
+const filterOptions: FilterOption[] = [
   { value: "first", label: "First Tag" },
   { value: "second", label: "Second Tag" },
 ];

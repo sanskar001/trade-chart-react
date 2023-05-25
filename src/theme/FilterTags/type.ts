@@ -1,4 +1,4 @@
-export interface Option {
+export interface FilterOption {
   value: string;
   label: React.ReactNode;
 }
@@ -6,7 +6,7 @@ export interface Option {
 type SetFilterType = React.Dispatch<React.SetStateAction<string>>;
 
 export interface FilterTagsProps {
-  filterOptions: Option[];
+  filterOptions: FilterOption[];
   selectedValue: string;
   setFilter: SetFilterType;
   name?: string;
