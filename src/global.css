@@ -97,4 +97,22 @@
   .search-field input {
     @apply h-[40px] w-full bg-transparent placeholder:text-steel-gray;
   }
+
+  /* --------------------- Filter Tags  --------------------- */
+
+  .filter-tags {
+    @apply flex gap-2 flex-wrap;
+  }
+
+  .filter-tag input {
+    @apply w-0 h-0 appearance-none;
+  }
+
+  .filter-tag label {
+    @apply inline-block px-3 py-[2px] rounded-3xl bg-alice-blue hover:bg-pale-blue;
+  }
+
+  .filter-tag input:checked + label {
+    @apply bg-russian-black text-white;
+  }
 }
