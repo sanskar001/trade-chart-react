@@ -1,16 +1,7 @@
 import React from "react";
 import SearchIcon from "../../components/SVG/SearchIcon";
 import { formatClass } from "../../util/formatClass";
-
-interface SearchFieldProps {
-  value: string;
-  onChange: React.ChangeEventHandler<HTMLInputElement>;
-  className?: string;
-  style?: React.CSSProperties;
-  autoFocus?: boolean;
-  disabled?: boolean;
-  placeholder?: string;
-}
+import { SearchFieldProps } from "./type";
 
 const SearchField: React.FC<SearchFieldProps> = ({
   value,
@@ -20,6 +11,7 @@ const SearchField: React.FC<SearchFieldProps> = ({
   autoFocus = false,
   disabled = false,
   placeholder = "Search",
+  ...props
 }) => {
   return (
     <div className={formatClass(`search-field ${className}`)} style={style}>
@@ -35,6 +27,7 @@ const SearchField: React.FC<SearchFieldProps> = ({
         autoComplete="off"
         autoFocus={autoFocus}
         disabled={disabled}
+        {...props}
       />
     </div>
   );

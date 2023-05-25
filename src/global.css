@@ -91,10 +91,10 @@
   /* ---------------- Search Field ---------------- */
 
   .search-field {
-    @apply flex items-center gap-2 border-y border-platinum px-5;
+    @apply flex items-center gap-2 border-y border-pale-blue px-5;
   }
 
   .search-field input {
-    @apply h-[40px] w-full text-lg placeholder:text-philippine-silver;
+    @apply h-[40px] w-full bg-transparent placeholder:text-steel-gray;
   }
 }

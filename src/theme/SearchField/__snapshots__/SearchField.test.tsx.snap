@@ -1,0 +1,207 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly when there is autoFocus searchfield 1`] = `
+<div
+  className="search-field"
+>
+  <label
+    htmlFor="search"
+  >
+    <svg
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M15 15.707H16V22.707H15z"
+        fill="#A3A6AF"
+        transform="rotate(-45 15 15.707)"
+      />
+      <circle
+        cx="10.5"
+        cy="10.5"
+        r="7"
+        stroke="#A3A6AF"
+      />
+    </svg>
+  </label>
+  <input
+    autoComplete="off"
+    autoFocus={true}
+    disabled={false}
+    id="search"
+    onChange={[MockFunction]}
+    placeholder="Search"
+    type="text"
+    value="APPLE"
+  />
+</div>
+`;
+
+exports[`renders correctly when there is default searchfield 1`] = `
+<div
+  className="search-field"
+>
+  <label
+    htmlFor="search"
+  >
+    <svg
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M15 15.707H16V22.707H15z"
+        fill="#A3A6AF"
+        transform="rotate(-45 15 15.707)"
+      />
+      <circle
+        cx="10.5"
+        cy="10.5"
+        r="7"
+        stroke="#A3A6AF"
+      />
+    </svg>
+  </label>
+  <input
+    autoComplete="off"
+    autoFocus={false}
+    disabled={false}
+    id="search"
+    onChange={[MockFunction]}
+    placeholder="Search"
+    type="text"
+    value="APPLE"
+  />
+</div>
+`;
+
+exports[`renders correctly when there is searchfield other attributes 1`] = `
+<div
+  className="search-field"
+>
+  <label
+    htmlFor="search"
+  >
+    <svg
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M15 15.707H16V22.707H15z"
+        fill="#A3A6AF"
+        transform="rotate(-45 15 15.707)"
+      />
+      <circle
+        cx="10.5"
+        cy="10.5"
+        r="7"
+        stroke="#A3A6AF"
+      />
+    </svg>
+  </label>
+  <input
+    autoComplete="off"
+    autoFocus={false}
+    disabled={false}
+    id="search"
+    name="search symbol"
+    onChange={[MockFunction]}
+    placeholder="Search Symbol"
+    type="text"
+    value="APPLE"
+  />
+</div>
+`;
+
+exports[`renders correctly when there is searchfield with custom class 1`] = `
+<div
+  className="search-field bg-green-200"
+>
+  <label
+    htmlFor="search"
+  >
+    <svg
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M15 15.707H16V22.707H15z"
+        fill="#A3A6AF"
+        transform="rotate(-45 15 15.707)"
+      />
+      <circle
+        cx="10.5"
+        cy="10.5"
+        r="7"
+        stroke="#A3A6AF"
+      />
+    </svg>
+  </label>
+  <input
+    autoComplete="off"
+    autoFocus={false}
+    disabled={false}
+    id="search"
+    onChange={[MockFunction]}
+    placeholder="Search"
+    type="text"
+    value="APPLE"
+  />
+</div>
+`;
+
+exports[`renders correctly when there is searchfield with custom style 1`] = `
+<div
+  className="search-field"
+  style={
+    Object {
+      "backgroundColor": "lightcyan",
+    }
+  }
+>
+  <label
+    htmlFor="search"
+  >
+    <svg
+      fill="none"
+      height="24"
+      viewBox="0 0 24 24"
+      width="24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M15 15.707H16V22.707H15z"
+        fill="#A3A6AF"
+        transform="rotate(-45 15 15.707)"
+      />
+      <circle
+        cx="10.5"
+        cy="10.5"
+        r="7"
+        stroke="#A3A6AF"
+      />
+    </svg>
+  </label>
+  <input
+    autoComplete="off"
+    autoFocus={false}
+    disabled={false}
+    id="search"
+    onChange={[MockFunction]}
+    placeholder="Search"
+    type="text"
+    value="APPLE"
+  />
+</div>
+`;

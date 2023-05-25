@@ -10,11 +10,11 @@ function SearchIcon() {
       viewBox="0 0 24 24"
     >
       <path
-        fill="#BCBFC5"
+        fill="#A3A6AF"
         d="M15 15.707H16V22.707H15z"
         transform="rotate(-45 15 15.707)"
       ></path>
-      <circle cx="10.5" cy="10.5" r="7" stroke="#BCBFC5"></circle>
+      <circle cx="10.5" cy="10.5" r="7" stroke="#A3A6AF"></circle>
     </svg>
   );
 }
