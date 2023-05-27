@@ -6,20 +6,20 @@ import { formatClass } from "@/util/formatClass";
 interface OptionType {
   value: string;
   label: React.ReactNode;
-  shortLabel: React.ReactNode;
-  isFrequent: boolean;
+  shortLabel?: React.ReactNode;
+  isFrequent?: boolean;
 }
 
 type OptionListType = Array<OptionType>;
 
 const sampleOptions: OptionListType = [
-  { value: "1", shortLabel: "1m", label: "1 minute", isFrequent: true },
-  { value: "30", shortLabel: "30m", label: "30 minutes", isFrequent: true },
-  { value: "1h", shortLabel: "1h", label: "1 hour", isFrequent: false },
-  { value: "2h", shortLabel: "2h", label: "2 hours", isFrequent: false },
-  { value: "1d", shortLabel: "1D", label: "1 day", isFrequent: true },
-  { value: "1m", shortLabel: "1M", label: "1 month", isFrequent: false },
-  { value: "3m", shortLabel: "3M", label: "1 months", isFrequent: false },
+  { value: "1", label: "1 minute" },
+  { value: "30", label: "30 minutes" },
+  { value: "1h", label: "1 hour" },
+  { value: "2h", label: "2 hours" },
+  { value: "1d", label: "1 day" },
+  { value: "1m", label: "1 month" },
+  { value: "3m", label: "3 months" },
 ];
 
 const DropDown: React.FC = () => {
@@ -37,7 +37,7 @@ const DropDown: React.FC = () => {
     <>
       <div className="drop-down">
         <div className="freq-option">
-          {frequentOptions.length > 0 ? (
+          {frequentOptions.length > 0 &&
             frequentOptions.map((option, index) => {
               return (
                 <Button
@@ -47,13 +47,16 @@ const DropDown: React.FC = () => {
                   }`}
                   onClick={setSelectedOption.bind(null, option.value)}
                 >
-                  {option.shortLabel}
+                  {option.shortLabel || option.label}
                 </Button>
               );
-            })
-          ) : (
-            <div>Select</div>
-          )}
+            })}
+          <Button className="active bg-alice-blue">
+            {sampleOptions.find((option) => option.value === selectedOption)
+              ?.shortLabel ||
+              sampleOptions.find((option) => option.value === selectedOption)
+                ?.label}
+          </Button>
           <Button
             className={formatClass(`down-arrow ${isExpand ? "expand" : ""}`)}
             onClick={toggleHandler}
@@ -61,6 +64,26 @@ const DropDown: React.FC = () => {
             <DownArrow />
           </Button>
         </div>
+        {isExpand && (
+          <div className="option-list">
+            {sampleOptions.map((option, index) => {
+              return (
+                <div
+                  key={`opt_${index + 1}`}
+                  className={formatClass(
+                    `option ${selectedOption === option.value ? "active" : ""}`
+                  )}
+                  onClick={() => {
+                    setSelectedOption(option.value);
+                    setIsExpand(false);
+                  }}
+                >
+                  {option.label}
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
     </>
   );

@@ -16,7 +16,6 @@ const App: React.FC = () => {
   return (
     <div className="min-h-[100vh] flex items-center justify-center">
       <ChartWidget options={chartWidgetOptions} />
-      <h3>Change</h3>
     </div>
   );
 };

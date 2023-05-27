@@ -119,11 +119,11 @@
   /* --------------------- Drop Down ------------------------ */
 
   .drop-down {
-    @apply h-[36px] relative border border-blue-500;
+    @apply h-[36px] text-sm font-semibold relative bg-white;
   }
 
   .freq-option {
-    @apply h-full text-sm flex items-center;
+    @apply h-full flex items-center gap-1;
   }
 
   .freq-option button {
@@ -131,7 +131,7 @@
   }
 
   .freq-option .active {
-    @apply text-royal-blue font-medium;
+    @apply text-royal-blue;
   }
 
   .drop-down .down-arrow svg {
@@ -140,5 +140,17 @@
 
   .drop-down .down-arrow.expand svg {
     @apply -rotate-180;
+  }
+
+  .drop-down .option-list {
+    @apply absolute top-full right-0 translate-y-1 max-h-[40vh] overflow-y-auto bg-inherit border shadow-modal z-50;
+  }
+
+  .drop-down .option {
+    @apply py-2 pl-3 pr-10 whitespace-nowrap hover:bg-alice-blue;
+  }
+
+  .drop-down .option.active {
+    @apply text-white bg-royal-blue;
   }
 }
