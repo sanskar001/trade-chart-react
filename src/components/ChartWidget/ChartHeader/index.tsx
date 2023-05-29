@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import SymbolSearch from "../SymbolSearch";
 import { SymbolType } from "../SymbolSearch/SymbolList/type";
 
@@ -11,10 +11,6 @@ const initialSymbol: SymbolType = {
 const ChartHeader: React.FC = () => {
   const [symbol, setSymbol] = useState<SymbolType>(initialSymbol);
 
-  useEffect(() => {
-    console.log("Selected Symbol:", symbol);
-  }, [symbol]);
-
   return (
     <div className="border-b border-linen-orange">
       <div className="h-[40px] bg-white flex items-center gap-2 p-[2px]">
@@ -22,6 +18,7 @@ const ChartHeader: React.FC = () => {
           setSymbol={(val) => setSymbol(val)}
           selectedSymbol={symbol}
         />
+        <div>{symbol.identifier}</div>
       </div>
     </div>
   );
