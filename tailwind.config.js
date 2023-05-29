@@ -14,6 +14,8 @@ module.exports = {
         "slate-gray": "#787B86",
         "baby-blue": "#F8F9FD",
         "steel-gray": "#A3A6AF",
+        "sunset-red": "#EF5350",
+        "dark-green": "#26A69A",
       },
       boxShadow: {
         modal: "0 2px 4px #0003",

@@ -85,7 +85,7 @@
   }
 
   .modal-footer {
-    @apply text-center bg-baby-blue text-slate-gray text-sm py-2 px-5 rounded-b-lg;
+    @apply text-center bg-baby-blue text-slate-gray text-xs py-2 px-5 rounded-b-lg;
   }
 
   /* ---------------- Search Field ---------------- */

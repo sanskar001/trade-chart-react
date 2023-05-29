@@ -3,7 +3,7 @@ export interface FilterOption {
   label: React.ReactNode;
 }
 
-type SetFilterType = React.Dispatch<React.SetStateAction<string>>;
+type SetFilterType = (_val: string) => void;
 
 export interface FilterTagsProps {
   filterOptions: FilterOption[];
