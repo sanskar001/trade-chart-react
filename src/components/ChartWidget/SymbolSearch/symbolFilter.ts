@@ -1,12 +1,12 @@
 import { FilterOption } from "@/theme/FilterTags/type";
 
-export const enum SymbolFilterType {
-  all = "all",
-  FUTIDX = "FUTIDX",
-  FUTSTK = "FUTSTK",
-  OPTIDX = "OPTIDX",
-  OPTSTK = "OPTSTK",
-}
+export const SymbolFilterType = {
+  all: "all",
+  FUTIDX: "FUTIDX",
+  FUTSTK: "FUTSTK",
+  OPTIDX: "OPTIDX",
+  OPTSTK: "OPTSTK",
+};
 
 export const symbolFilterOptions: FilterOption[] = [
   { value: SymbolFilterType.all, label: "All" },
