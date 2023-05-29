@@ -1,0 +1,15 @@
+.symbol_btn {
+  @apply h-full w-[130px] px-2 text-sm font-semibold text-left text-truncate;
+}
+
+.symbol_modal {
+  @apply w-[85%] h-[80%] overflow-y-auto;
+}
+
+.modal_body {
+  @apply h-full flex flex-col;
+}
+
+.symbol_filter {
+  @apply px-5 py-4;
+}

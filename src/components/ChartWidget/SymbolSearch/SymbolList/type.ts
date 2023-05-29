@@ -8,5 +8,5 @@ export type SymbolListType = Array<SymbolType>;
 
 export interface SymbolListProps {
   symbolList: SymbolListType;
-  onSelect: (_val: string) => void;
+  onSelect: (_val: SymbolType) => void;
 }

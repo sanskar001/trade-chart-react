@@ -3,13 +3,15 @@ import Button from "@/theme/Button";
 import FilterTags from "@/theme/FilterTags";
 import Modal from "@/theme/Modal";
 import SearchField from "@/theme/SearchField";
-import { SymbolFilterType, symbolFilterOptions } from "./symbolFilter";
+import { symbolFilterOptions } from "./symbolFilter";
 import SymbolList from "./SymbolList";
 import { symbolList } from "@/mocks/symbol_list";
+import { SymbolType } from "./SymbolList/type";
+import classes from "./SymbolSearch.module.css";
 
 interface SymbolSearchProps {
-  selectedSymbol: string;
-  setSymbol: (_val: string) => void;
+  selectedSymbol: SymbolType;
+  setSymbol: (_val: SymbolType) => void;
 }
 
 const SymbolSearch: React.FC<SymbolSearchProps> = ({
@@ -18,11 +20,9 @@ const SymbolSearch: React.FC<SymbolSearchProps> = ({
 }) => {
   const [showSymbolModal, setShowSymbolModal] = useState<boolean>(false);
   const [searchInput, setSearchInput] = useState<string>("");
-  const [symbolFilter, setSymbolFilter] = useState<string>(
-    SymbolFilterType.all
-  );
+  const [symbolFilter, setSymbolFilter] = useState<string>("all");
 
-  const selectSymbolHandler = (val: string) => {
+  const selectSymbolHandler = (val: SymbolType) => {
     setSymbol(val);
     setShowSymbolModal(false);
   };
@@ -31,18 +31,18 @@ const SymbolSearch: React.FC<SymbolSearchProps> = ({
     <>
       <Button
         onClick={setShowSymbolModal.bind(null, true)}
-        className="h-full w-[130px] px-2 text-sm font-semibold text-left text-truncate"
+        className={classes.symbol_btn}
       >
-        {selectedSymbol}
+        {selectedSymbol.product}
       </Button>
       <Modal
         isShowModal={showSymbolModal}
         onClose={setShowSymbolModal.bind(null, false)}
         headerText="Symbol Search"
         footerText="Simply start typing while on the chart to pull up this search box"
-        modalClass="w-[85%] h-[80%] overflow-y-auto"
+        modalClass={classes.symbol_modal}
       >
-        <div className="h-full flex flex-col">
+        <div className={classes.modal_body}>
           <SearchField
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
@@ -53,7 +53,7 @@ const SymbolSearch: React.FC<SymbolSearchProps> = ({
             setFilter={(val) => {
               setSymbolFilter(val);
             }}
-            className="px-5 py-4"
+            className={classes.symbol_filter}
           />
           <SymbolList symbolList={symbolList} onSelect={selectSymbolHandler} />
         </div>

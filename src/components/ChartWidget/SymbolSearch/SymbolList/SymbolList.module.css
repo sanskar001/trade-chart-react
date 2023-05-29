@@ -7,11 +7,11 @@
 }
 
 .symbol_item h6 {
-  @apply text-royal-blue;
+  @apply w-[120px] text-truncate text-royal-blue;
 }
 
 .symbol_item div {
-  @apply flex-1 mx-10 whitespace-nowrap text-truncate;
+  @apply flex-1 mx-4 whitespace-nowrap text-truncate;
 }
 
 .option_type {

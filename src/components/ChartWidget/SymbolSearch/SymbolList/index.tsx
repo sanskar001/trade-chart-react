@@ -1,6 +1,6 @@
 import React from "react";
-import classes from "./SymbolList.module.css";
 import { SymbolListProps } from "./type";
+import classes from "./SymbolList.module.css";
 
 const optionType: Record<string, string> = {
   CE: "#26a69a35",
@@ -15,7 +15,7 @@ const SymbolList: React.FC<SymbolListProps> = ({ symbolList, onSelect }) => {
           <div
             key={symbol.identifier}
             className={classes.symbol_item}
-            onClick={onSelect.bind(null, symbol.identifier)}
+            onClick={onSelect.bind(null, symbol)}
           >
             <h6>{symbol.product}</h6>
             <div>{symbol.identifier}</div>
