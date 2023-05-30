@@ -2,6 +2,7 @@ export interface SymbolType {
   identifier: string;
   product: string;
   optionType: string;
+  tradeType: string;
 }
 
 export type SymbolListType = Array<SymbolType>;

@@ -3,9 +3,10 @@ import SymbolSearch from "../SymbolSearch";
 import { SymbolType } from "../SymbolSearch/SymbolList/type";
 
 const initialSymbol: SymbolType = {
-  identifier: "OPTSTK_RELIANCE_15JUL2021_CE_4200",
+  identifier: "FUTSTK_RELIANCE_15JUL2021_XX_4200",
   product: "RELIANCE",
-  optionType: "CE",
+  optionType: "XX",
+  tradeType: "FUTSTK",
 };
 
 const ChartHeader: React.FC = () => {

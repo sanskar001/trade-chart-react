@@ -19,7 +19,7 @@ const SymbolList: React.FC<SymbolListProps> = ({ symbolList, onSelect }) => {
           >
             <h6>{symbol.product}</h6>
             <div>{symbol.identifier}</div>
-            {Object.keys(optionType).includes("CE") && (
+            {Object.keys(optionType).includes(symbol.optionType) && (
               <span
                 className={classes.option_type}
                 style={{ backgroundColor: optionType[symbol.optionType] }}
