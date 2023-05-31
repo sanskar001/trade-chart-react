@@ -1,6 +1,4 @@
-import { FilterOption } from "@/theme/FilterTags/type";
-
-export const symbolFilterOptions: FilterOption[] = [
+export const symbolFilterOptions: any[] = [
   { value: "all", label: "All" },
   { value: "FUTIDX", label: "FUTIDX" },
   { value: "FUTSTK", label: "FUTSTK" },

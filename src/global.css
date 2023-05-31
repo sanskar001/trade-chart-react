@@ -100,19 +100,15 @@
 
   /* --------------------- Filter Tags  --------------------- */
 
-  .filter-tags {
-    @apply flex gap-2 flex-wrap;
-  }
-
-  .filter-tag input {
+  .radio-tag input {
     @apply w-0 h-0 appearance-none;
   }
 
-  .filter-tag label {
+  .radio-tag label {
     @apply inline-block px-3 py-[2px] rounded-3xl bg-alice-blue hover:bg-pale-blue;
   }
 
-  .filter-tag input:checked + label {
+  .radio-tag input:checked + label {
     @apply bg-russian-black text-white;
   }
 

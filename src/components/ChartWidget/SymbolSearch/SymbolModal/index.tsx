@@ -1,9 +1,9 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Modal from "@/theme/Modal";
 import SearchField from "@/theme/SearchField";
-import FilterTags from "@/theme/FilterTags";
+// import FilterTags from "@/theme/FilterTags";
 import SymbolList from "../SymbolList";
-import { symbolFilterOptions } from "../symbolFilter";
+// import { symbolFilterOptions } from "../symbolFilter";
 import { SymbolListType, SymbolType } from "../SymbolList/type";
 import { mockSymbolList } from "@/mocks/symbol_list";
 
@@ -19,7 +19,7 @@ const SymbolModal: React.FC<SymbolModalProps> = ({
   onSelectSymbol,
 }) => {
   const [searchInput, setSearchInput] = useState<string>("");
-  const [symbolFilter, setSymbolFilter] = useState<string>("all");
+  // const [symbolFilter, setSymbolFilter] = useState<string>("all");
   const [symbolList, setSymbolList] = useState<SymbolListType>([]);
 
   useEffect(() => {
@@ -27,10 +27,8 @@ const SymbolModal: React.FC<SymbolModalProps> = ({
   }, []);
 
   const filteredSymbolList = useMemo(() => {
-    return symbolList.filter((symbol) =>
-      symbolFilter === "all" ? true : symbol.tradeType === symbolFilter
-    );
-  }, [symbolList, symbolFilter]);
+    return symbolList;
+  }, [symbolList]);
 
   const searchedSymbolList = useMemo(() => {
     return filteredSymbolList.filter((symbol) =>
@@ -51,14 +49,14 @@ const SymbolModal: React.FC<SymbolModalProps> = ({
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
         />
-        <FilterTags
+        {/* <FilterTags
           filterOptions={symbolFilterOptions}
           selectedValue={symbolFilter}
           setFilter={(val) => {
             setSymbolFilter(val);
           }}
           className="px-5 py-4"
-        />
+        /> */}
         <SymbolList
           symbolList={searchedSymbolList}
           onSelect={(val) => onSelectSymbol(val)}
