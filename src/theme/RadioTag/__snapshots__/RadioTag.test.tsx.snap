@@ -1,0 +1,135 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly when there is checked radioTag 1`] = `
+<div
+  className="radio-tag"
+>
+  <input
+    checked={true}
+    disabled={false}
+    id="first"
+    name="radio-filter"
+    onChange={[MockFunction]}
+    type="radio"
+    value="first"
+  />
+  <label
+    htmlFor="first"
+  >
+    first
+  </label>
+</div>
+`;
+
+exports[`renders correctly when there is default radioTag 1`] = `
+<div
+  className="radio-tag"
+>
+  <input
+    checked={false}
+    disabled={false}
+    id="first"
+    name="radio-filter"
+    type="radio"
+    value="first"
+  />
+  <label
+    htmlFor="first"
+  >
+    first
+  </label>
+</div>
+`;
+
+exports[`renders correctly when there is disabled radioTag 1`] = `
+<div
+  className="radio-tag"
+>
+  <input
+    checked={false}
+    disabled={true}
+    id="first"
+    name="radio-filter"
+    onChange={[MockFunction]}
+    type="radio"
+    value="first"
+  />
+  <label
+    htmlFor="first"
+  >
+    first
+  </label>
+</div>
+`;
+
+exports[`renders correctly when there is radioTag with custom style and class 1`] = `
+<div
+  className="radio-tag custom-radio"
+  style={
+    Object {
+      "border": "2px solid yellow",
+    }
+  }
+>
+  <input
+    checked={false}
+    disabled={false}
+    id="first"
+    name="radio-filter"
+    onChange={[MockFunction]}
+    type="radio"
+    value="first"
+  />
+  <label
+    htmlFor="first"
+  >
+    <h4>
+      First
+    </h4>
+  </label>
+</div>
+`;
+
+exports[`renders correctly when there is radioTag with label 1`] = `
+<div
+  className="radio-tag"
+>
+  <input
+    checked={false}
+    disabled={false}
+    id="first"
+    name="radio-filter"
+    onChange={[MockFunction]}
+    type="radio"
+    value="first"
+  />
+  <label
+    htmlFor="first"
+  >
+    <h4>
+      First
+    </h4>
+  </label>
+</div>
+`;
+
+exports[`renders correctly when there is radioTag with onChange event handle 1`] = `
+<div
+  className="radio-tag"
+>
+  <input
+    checked={false}
+    disabled={false}
+    id="first"
+    name="radio-filter"
+    onChange={[MockFunction]}
+    type="radio"
+    value="first"
+  />
+  <label
+    htmlFor="first"
+  >
+    first
+  </label>
+</div>
+`;

@@ -112,6 +112,10 @@
     @apply bg-russian-black text-white;
   }
 
+  .radio-tag input:disabled + label {
+    @apply hover:bg-alice-blue;
+  }
+
   /* --------------------- Drop Down ------------------------ */
 
   .drop-down {
