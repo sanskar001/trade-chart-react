@@ -4,7 +4,12 @@ import ChartWidget from "@components/ChartWidget";
 import { ChartWidgetOptionsType } from "@ChartWidget/type";
 
 const chartWidgetOptions: ChartWidgetOptionsType = {
-  symbol: "FUTSTK_RELIANCE_15JUL2021_XX_4200",
+  symbol: {
+    identifier: "FUTSTK_RELIANCE_15JUL2021_XX_4200",
+    product: "RELIANCE",
+    tradeType: "FUTSTK",
+    optionType: "XX",
+  },
   style: {
     width: "100%",
     maxWidth: "1000px",

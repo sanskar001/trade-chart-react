@@ -2,7 +2,12 @@ import { createContext } from "react";
 import { ChartContextType } from "./type";
 
 const defaultValue: ChartContextType = {
-  symbol: "",
+  symbol: {
+    identifier: "",
+    product: "",
+    tradeType: "OPTSTK",
+    optionType: "CE",
+  },
   setSymbol: (_symbol) => undefined, // eslint-disable-line @typescript-eslint/no-unused-vars
 };
 

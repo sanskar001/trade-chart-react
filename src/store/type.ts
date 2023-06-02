@@ -1,8 +1,8 @@
 import { SymbolType } from "@ChartWidget/type";
 
 export interface ChartContextType {
-  symbol: string;
-  setSymbol: (_symbol: string) => void;
+  symbol: SymbolType;
+  setSymbol: (_symbol: SymbolType) => void;
 }
 
 export interface ChartProviderProps {

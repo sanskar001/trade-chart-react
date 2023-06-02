@@ -1,7 +1,7 @@
 import React from "react";
 
 const SelectSymbol: React.FC = () => {
-  return <div>SelectSymbol</div>;
+  return <div>Select Symbol</div>;
 };
 
 export default SelectSymbol;
