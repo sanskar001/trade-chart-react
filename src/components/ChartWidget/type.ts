@@ -1,16 +1,7 @@
-import { Time } from "lightweight-charts";
+export type SymbolType = string;
 
 export interface ChartWidgetOptionsType {
+  symbol: SymbolType;
   style?: React.CSSProperties;
   other?: string;
 }
-
-export interface CandleDataType {
-  time: Time;
-  open: number;
-  close: number;
-  high: number;
-  low: number;
-}
-
-export type CandleSeriesDataType = Array<CandleDataType>;

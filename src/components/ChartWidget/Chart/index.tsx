@@ -6,7 +6,7 @@ import {
   createChart,
 } from "lightweight-charts";
 import stockData from "@/mocks/trade-data.json";
-import { CandleSeriesDataType } from "../type";
+import { CandleSeriesDataType } from "./type";
 
 const Chart: React.FC = () => {
   const chartContainerRef =
