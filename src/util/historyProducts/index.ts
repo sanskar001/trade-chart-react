@@ -1,9 +1,9 @@
-import { Product } from "@/repo/datafeed/type";
+import { Product, ProductList } from "@ChartWidget/type";
 import { PRODUCTS_SIZE as SIZE } from "@/util/constant";
 
 interface HistoryProducts {
-  get: () => Product[];
-  add: (newProduct: Product) => void;
+  get: () => ProductList;
+  add: (_newProduct: Product) => void;
   removeAll: () => void;
 }
 
@@ -13,6 +13,9 @@ export const historyProducts: HistoryProducts = {
   },
   add: function (newProduct) {
     const data = this.get();
+    if (data.includes(newProduct)) {
+      return;
+    }
 
     if (data.length < SIZE) {
       data.push(newProduct);
@@ -22,6 +25,7 @@ export const historyProducts: HistoryProducts = {
     } else {
       data.pop();
     }
+
     localStorage.setItem("products", JSON.stringify(data));
   },
   removeAll: function () {

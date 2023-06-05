@@ -1,4 +1,4 @@
-import { Datafeed } from "./type";
+import { Datafeed } from "@ChartWidget/type";
 import mockProductData from "@/mocks/product-data.json";
 
 export const mockDatafeed: Datafeed = {
