@@ -8,7 +8,7 @@ export interface BackDropProps {
 export interface ModalWindowProps {
   children: React.ReactNode;
   onClose: CloseHandlerType;
-  headerText?: string;
+  heading?: React.ReactNode;
   modalClass?: string;
   footerText?: string;
 }

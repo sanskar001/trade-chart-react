@@ -57,7 +57,7 @@ it("renders correctly when there is modal with header and footer", () => {
       <Modal
         isShowModal={true}
         onClose={closeHandler}
-        headerText="Modal Header"
+        heading="Modal Header"
         footerText="Modal Footer"
       >
         <div>

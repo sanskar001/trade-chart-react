@@ -15,14 +15,14 @@ const BackDrop: React.FC<BackDropProps> = ({ backdropClass = "", onClose }) => (
 const ModalWindow: React.FC<ModalWindowProps> = ({
   children,
   onClose,
-  headerText = "",
+  heading = "",
   modalClass = "",
   footerText = "",
 }) => (
   <div className={formatClass(`modal ${modalClass}`)}>
-    {headerText && (
+    {heading && (
       <div className="modal-header">
-        <h4>{headerText}</h4>
+        <h4>{heading}</h4>
         <Button className="p-1" onClick={onClose}>
           <CloseICon />
         </Button>
@@ -37,7 +37,7 @@ const Modal: React.FC<ModalProps> = ({
   children,
   isShowModal = false,
   onClose,
-  headerText = "",
+  heading = "",
   modalClass = "",
   backdropClass = "",
   footerText = "",
@@ -51,7 +51,7 @@ const Modal: React.FC<ModalProps> = ({
           <ModalWindow
             onClose={onClose}
             modalClass={modalClass}
-            headerText={headerText}
+            heading={heading}
             footerText={footerText}
           >
             {children}
