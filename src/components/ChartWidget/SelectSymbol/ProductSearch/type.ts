@@ -1,6 +1,3 @@
-export interface Product {
-  value: string;
-  label: string;
-}
+type Product = string;
 
 export type ProductList = Array<Product>;
