@@ -69,7 +69,7 @@ exports[`renders correctly when there is default searchfield 1`] = `
   </label>
   <input
     autoComplete="off"
-    autoFocus={false}
+    autoFocus={true}
     disabled={false}
     id="search"
     onChange={[MockFunction]}
@@ -109,7 +109,7 @@ exports[`renders correctly when there is searchfield other attributes 1`] = `
   </label>
   <input
     autoComplete="off"
-    autoFocus={false}
+    autoFocus={true}
     disabled={false}
     id="search"
     name="search symbol"
@@ -150,7 +150,7 @@ exports[`renders correctly when there is searchfield with custom class 1`] = `
   </label>
   <input
     autoComplete="off"
-    autoFocus={false}
+    autoFocus={true}
     disabled={false}
     id="search"
     onChange={[MockFunction]}
@@ -195,7 +195,7 @@ exports[`renders correctly when there is searchfield with custom style 1`] = `
   </label>
   <input
     autoComplete="off"
-    autoFocus={false}
+    autoFocus={true}
     disabled={false}
     id="search"
     onChange={[MockFunction]}

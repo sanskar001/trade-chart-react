@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from "react";
 import Button from "@/theme/Button";
-import DownArrow from "@/components/SVG/DownArrow";
+import ArrowIcon from "@/components/SVG/ArrowIcon";
 import { formatClass } from "@/util/formatClass";
 import { DropDownProps } from "./type";
 
@@ -51,7 +51,7 @@ const DropDown: React.FC<DropDownProps> = ({
           className={formatClass(`down-arrow ${isExpand ? "expand" : ""}`)}
           onClick={toggleHandler}
         >
-          <DownArrow />
+          <ArrowIcon />
         </Button>
       </div>
       {isExpand && (

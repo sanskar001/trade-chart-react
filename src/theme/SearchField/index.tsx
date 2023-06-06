@@ -8,7 +8,7 @@ const SearchField: React.FC<SearchFieldProps> = ({
   onChange,
   className = "",
   style,
-  autoFocus = false,
+  autoFocus = true,
   disabled = false,
   placeholder = "Search",
   ...props
