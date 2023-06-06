@@ -8,7 +8,11 @@ const defaultValue: ChartContextType = {
     tradeType: "OPTSTK",
     optionType: "CE",
   },
-  setSymbol: (_symbol) => undefined, // eslint-disable-line @typescript-eslint/no-unused-vars
+  resolution: "1D",
+
+  /* eslint-disable */
+  setResolution: (_res) => undefined,
+  setSymbol: (_symbol) => undefined,
 };
 
 export const ChartContext = createContext(defaultValue);

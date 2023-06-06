@@ -147,7 +147,7 @@
   }
 
   .drop-down .option {
-    @apply py-2 pl-3 pr-10 whitespace-nowrap hover:bg-alice-blue;
+    @apply py-2 pl-3 pr-10 whitespace-nowrap cursor-default hover:bg-alice-blue;
   }
 
   .drop-down .option.active {

@@ -8,6 +8,12 @@ export const resolutions: OptionListType = [
     isFrequent: true,
   },
   {
+    value: "5",
+    label: "5 minutes",
+    shortLabel: "5m",
+    isFrequent: false,
+  },
+  {
     value: "30",
     label: "30 minutes",
     shortLabel: "30m",
@@ -17,7 +23,7 @@ export const resolutions: OptionListType = [
     value: "60",
     label: "1 hour",
     shortLabel: "1h",
-    isFrequent: false,
+    isFrequent: true,
   },
   {
     value: "1D",
@@ -26,9 +32,15 @@ export const resolutions: OptionListType = [
     isFrequent: true,
   },
   {
+    value: "1W",
+    label: "1 week",
+    shortLabel: "1W",
+    isFrequent: false,
+  },
+  {
     value: "1M",
     label: "1 month",
     shortLabel: "1M",
-    isFrequent: true,
+    isFrequent: false,
   },
 ];

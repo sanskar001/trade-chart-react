@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import DropDown from "@/theme/DropDown";
-import { resolutions } from "./resolution";
+import { resolutions } from "@/repo/resolutions";
+import { ChartContext } from "@/store/chart-context";
 
 const SelectResolution: React.FC = () => {
-  const [resolution, setResolution] = useState<string>("1");
+  const { resolution, setResolution } = useContext(ChartContext);
 
   return (
     <>
