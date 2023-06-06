@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
 import Modal from "@/theme/Modal";
 import ProductSearch from "../ProductSearch";
-import SymbolSearch, { Heading } from "../SymbolSearch";
+import SymbolSearch from "../SymbolSearch";
+import Heading from "../SymbolSearch/Heading";
 import { Product } from "@ChartWidget/type";
 
 interface SymbolModalProps {
@@ -11,7 +12,7 @@ interface SymbolModalProps {
 
 const SymbolModal: React.FC<SymbolModalProps> = ({ isShowModal, onClose }) => {
   const productRef = useRef<Product>("");
-  const [isSymbol, setIsSymbol] = useState<boolean>(false);
+  const [isSymbol, setIsSymbol] = useState<boolean>(true);
 
   const modalCloseHandler = () => {
     onClose();

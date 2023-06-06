@@ -1,15 +1,27 @@
-import React from "react";
-import ArrowIcon from "@/components/SVG/ArrowIcon";
-import Button from "@/theme/Button";
+import React, { useState } from "react";
+import SearchField from "@/theme/SearchField";
+import SymbolFilter, { TradeType } from "./SymbolFilter";
+import SymbolGroup from "./SymbolGroup";
 
 interface SymbolSearchProps {
   product: string;
 }
 
-const SymbolSearch: React.FC<SymbolSearchProps> = ({ product }) => {
+const SymbolSearch: React.FC<SymbolSearchProps> = () => {
+  const [searchValue, setSearchValue] = useState<string>("");
+  const [tradeType, setTradeType] = useState<TradeType>(TradeType.all);
+
   return (
     <div className="h-full flex flex-col">
-      <h1>{product}</h1>
+      <SearchField
+        value={searchValue}
+        onChange={(e) => setSearchValue(e.target.value)}
+      />
+      <SymbolFilter
+        selectedValue={tradeType}
+        onSelect={(val) => setTradeType(val)}
+      />
+      <SymbolGroup />
     </div>
   );
 };
@@ -17,18 +29,3 @@ const SymbolSearch: React.FC<SymbolSearchProps> = ({ product }) => {
 export default SymbolSearch;
 
 // -------------------------------------------------------------------------
-
-interface HeadingProps {
-  onBack: () => void;
-}
-
-export const Heading: React.FC<HeadingProps> = ({ onBack }) => {
-  return (
-    <div className="flex items-center gap-2">
-      <Button className="p-1" onClick={onBack}>
-        <ArrowIcon direction="left" />
-      </Button>
-      <h4>Symbol Search</h4>
-    </div>
-  );
-};

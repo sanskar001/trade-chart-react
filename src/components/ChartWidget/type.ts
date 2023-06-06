@@ -8,11 +8,14 @@ export interface Datafeed {
   getProducts: GetProductsHandler;
 }
 
+export type OptionType = "CE" | "PE" | "XX" | "FF";
+export type TradeType = "FUTIDX" | "FUTSTK" | "OPTSTK" | "OPTIDX";
+
 export interface SymbolType {
   identifier: string;
   product: string;
-  tradeType: "FUTIDX" | "FUTSTK" | "OPTSTK" | "OPTIDX";
-  optionType: "CE" | "PE" | "XX" | "FF";
+  tradeType: TradeType;
+  optionType: OptionType;
 }
 
 export interface ChartWidgetOptionsType {

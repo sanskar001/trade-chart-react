@@ -27,7 +27,6 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ onSelect }) => {
     <div className="h-full flex flex-col">
       <SearchField
         value={searchValue}
-        placeholder="Search Product"
         onChange={(e) => setSearchValue(e.target.value)}
       />
       <ProductFilter
