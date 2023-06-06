@@ -1,9 +1,10 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import Modal from "@/theme/Modal";
 import ProductSearch from "../ProductSearch";
 import SymbolSearch from "../SymbolSearch";
 import Heading from "../SymbolSearch/Heading";
-import { Product } from "@ChartWidget/type";
+import { Product, SymbolType } from "@ChartWidget/type";
+import { ChartContext } from "@/store/chart-context";
 
 interface SymbolModalProps {
   isShowModal: boolean;
@@ -11,8 +12,9 @@ interface SymbolModalProps {
 }
 
 const SymbolModal: React.FC<SymbolModalProps> = ({ isShowModal, onClose }) => {
+  const chartCtx = useContext(ChartContext);
   const productRef = useRef<Product>("");
-  const [isSymbol, setIsSymbol] = useState<boolean>(true);
+  const [isSymbol, setIsSymbol] = useState<boolean>(false);
 
   const modalCloseHandler = () => {
     onClose();
@@ -22,6 +24,11 @@ const SymbolModal: React.FC<SymbolModalProps> = ({ isShowModal, onClose }) => {
   const productSelectHandler = (val: Product) => {
     productRef.current = val;
     setIsSymbol(true);
+  };
+
+  const symbolSelectHandler = (val: SymbolType) => {
+    chartCtx.setSymbol(val);
+    onClose();
   };
 
   const modalHeading = isSymbol ? (
@@ -39,7 +46,10 @@ const SymbolModal: React.FC<SymbolModalProps> = ({ isShowModal, onClose }) => {
       modalClass="w-[85%] h-[80%]"
     >
       {isSymbol ? (
-        <SymbolSearch product={productRef.current} />
+        <SymbolSearch
+          product={productRef.current}
+          onSelectSymbol={symbolSelectHandler}
+        />
       ) : (
         <ProductSearch onSelect={productSelectHandler} />
       )}

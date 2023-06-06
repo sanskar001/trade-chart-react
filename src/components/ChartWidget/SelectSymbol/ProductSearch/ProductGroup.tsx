@@ -25,7 +25,7 @@ const ProductGroup: React.FC<ProductGroupProps> = ({
           return (
             <div
               key={product}
-              className="h-[40px] flex items-center gap-4 px-5 border-b border-b-alice-blue hover:bg-alice-blue hover:text-royal-blue last:border-b-0"
+              className="h-[40px] flex items-center gap-4 px-5 border-b border-b-alice-blue hover:bg-alice-blue hover:text-royal-blue last:border-b-0 cursor-default"
               onClick={selectProductHandler.bind(null, product)}
             >
               <ArrowIcon direction="right" />

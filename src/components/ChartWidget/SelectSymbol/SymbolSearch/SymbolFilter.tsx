@@ -32,10 +32,10 @@ const SymbolFilter: React.FC<SymbolFilterProps> = ({
 }) => {
   return (
     <div className="px-5 py-3 flex items-center flex-wrap gap-2">
-      {filterOptions.map((option) => {
+      {filterOptions.map((option, index) => {
         return (
           <RadioTag
-            key={option}
+            key={`opt_${index + 1}`}
             name="symbol-filter"
             value={option}
             label={option.toUpperCase()}

@@ -14,7 +14,7 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ onSelect }) => {
 
   const productList: ProductList = useMemo(() => {
     const data = mockDatafeed.getProducts();
-    return data.map((product) => product.toLowerCase());
+    return data.map((product) => product);
   }, []);
 
   const filteredProductList = useMemo(() => {
@@ -30,7 +30,7 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ onSelect }) => {
         onChange={(e) => setSearchValue(e.target.value)}
       />
       <ProductFilter
-        selectedValue={searchValue}
+        selectedValue={searchValue.toLowerCase()}
         onSelect={(val) => setSearchValue(val)}
       />
       <ProductGroup

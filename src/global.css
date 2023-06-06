@@ -119,7 +119,7 @@
   /* --------------------- Drop Down ------------------------ */
 
   .drop-down {
-    @apply text-sm font-semibold relative bg-white;
+    @apply text-sm font-medium relative bg-white;
   }
 
   .freq-option {
