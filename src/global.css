@@ -139,7 +139,7 @@
   }
 
   .drop-down .down-arrow.expand svg {
-    @apply -rotate-180;
+    @apply !-rotate-180;
   }
 
   .drop-down .option-list {

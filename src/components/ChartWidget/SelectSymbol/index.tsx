@@ -9,7 +9,7 @@ const SelectSymbol: React.FC = () => {
     <>
       <Button
         onClick={setShowModal.bind(null, true)}
-        className="h-full w-[130px] px-2 text-sm font-semibold text-left text-truncate"
+        className="h-full w-[100px] px-2 text-sm font-semibold text-left text-truncate"
       >
         RELIANCE
       </Button>
