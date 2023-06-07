@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./global.css";
 import ChartWidget from "@components/ChartWidget";
 import { ChartWidgetOptionsType } from "@ChartWidget/type";
-import { datafeed } from "@/repo/datafeed";
+import { datafeed, initSocket } from "@/repo/datafeed";
 
 const chartWidgetOptions: ChartWidgetOptionsType = {
   symbol: {
@@ -21,9 +21,18 @@ const chartWidgetOptions: ChartWidgetOptionsType = {
 };
 
 const App: React.FC = () => {
+  const [auth, setAuth] = useState<boolean>(false);
+
+  useEffect(() => {
+    initSocket(() => {
+      setAuth(true);
+    });
+  }, []);
+
   return (
     <div className="min-h-[100vh] flex items-center justify-center">
-      <ChartWidget options={chartWidgetOptions} />
+      {auth && <ChartWidget options={chartWidgetOptions} />}
+      {!auth && <div>Websocket Authenticating...</div>}
     </div>
   );
 };

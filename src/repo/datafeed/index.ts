@@ -1,5 +1,20 @@
 import { Datafeed } from "@ChartWidget/type";
 import { fetchProducts, fetchSymbols } from "./rest-api";
+import { FetchSocket } from "@/services/socket.service";
+import { BASE_URL, API_KEY } from "@/util/constant";
+
+let Socket: FetchSocket;
+
+export const initSocket = (onAuth: () => void) => {
+  Socket = new FetchSocket(BASE_URL, () => {
+    const request = {
+      MessageType: "Authenticate",
+      Password: API_KEY,
+    };
+
+    Socket.sendRequest(request, "AuthenticateResult", onAuth);
+  });
+};
 
 export const datafeed: Datafeed = {
   // getProducts: () => {
@@ -28,6 +43,7 @@ export const datafeed: Datafeed = {
     try {
       const data = await fetchProducts();
       resolveCallback(data);
+      console.log("getProducts datafeed socket: ", Socket);
       // eslint-disabled-next-line
     } catch (err: any) {
       rejectCallback(err);

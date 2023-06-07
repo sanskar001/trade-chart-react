@@ -1,22 +1,21 @@
-const BASE_URL = "wss://endpoint:port";
-
 /* eslint-disable */
 
-type eventHandlerType = (event: Event) => void;
+type ConnectionHandler = () => void;
+type ResolveCallback = (eventResult?: any) => void;
 
-const errorHandler: eventHandlerType = (event) => {
-  console.log("Error Handler", event);
+const messageObject: { [key: string]: ResolveCallback | undefined } = {
+  echo: undefined,
+  allowvmrunningresult: undefined,
+  allowServeroarunningresult: undefined,
 };
 
-const messageObject: { [key: string]: eventHandlerType } = {
-  Error: errorHandler,
-};
-
-class fetchSocket {
+export class FetchSocket {
   private readonly instance: WebSocket;
+  private readonly onConnect: ConnectionHandler;
 
-  constructor(baseURL: string) {
+  constructor(baseURL: string, onConnect: ConnectionHandler) {
     this.instance = new WebSocket(baseURL);
+    this.onConnect = onConnect;
 
     this.instance.onopen = (event: Event) => {
       this.openHandler(event);
@@ -36,34 +35,41 @@ class fetchSocket {
   }
 
   private openHandler(event: Event) {
-    console.log("WEBSOCKET CONNECTED!", event);
+    this.onConnect();
   }
 
   private closeHandler(event: Event) {
     console.log("WEBSOCKET DISCONNTECTED!", event);
   }
 
-  private messageHandler(event: Event) {
-    console.log("WEBSOCKET MESSAGE!", event);
-    // messageObject[event.messageType](event);
+  private messageHandler(event: any) {
+    const eventResult = JSON.parse(event.data);
+    const resolveCb = messageObject[eventResult.MessageType.toLowerCase()];
+
+    if (resolveCb) {
+      resolveCb?.(eventResult);
+    }
   }
 
   private errorHandler(event: Event) {
     console.log("WEBSOCKET ERROR!", event);
   }
 
-  sendRequest(message: any, msgType: string, onSuccess: () => void) {
+  sendRequest(
+    request: any,
+    messageType: string,
+    resolveCallback: ResolveCallback
+  ) {
+    const msgType = messageType.toLowerCase();
     if (!messageObject.hasOwnProperty(msgType)) {
-      messageObject[msgType] = onSuccess;
+      messageObject[msgType] = resolveCallback;
     }
 
-    const jsonMessage = JSON.stringify(message);
-    this.instance.send(jsonMessage);
+    const jsonRequest = JSON.stringify(request);
+    this.instance.send(jsonRequest);
   }
 
   closeSocket() {
     this.instance.close();
   }
 }
-
-export const Socket = new fetchSocket(BASE_URL);
