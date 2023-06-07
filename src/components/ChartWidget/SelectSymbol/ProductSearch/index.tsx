@@ -15,7 +15,10 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ onSelect }) => {
 
   useEffect(() => {
     datafeed.getProducts(
-      (val) => setProductList(val),
+      (val) => {
+        console.log(val);
+        setProductList(val);
+      },
       (err) => alert(err)
     );
   }, []);

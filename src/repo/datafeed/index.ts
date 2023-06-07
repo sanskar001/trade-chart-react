@@ -1,5 +1,5 @@
 import { Datafeed } from "@ChartWidget/type";
-import { fetchProducts, fetchSymbols } from "./rest-api";
+import { fetchSymbols } from "./rest-api";
 import { FetchSocket } from "@/services/socket.service";
 import { BASE_URL, API_KEY } from "@/util/constant";
 
@@ -17,37 +17,18 @@ export const initSocket = (onAuth: () => void) => {
 };
 
 export const datafeed: Datafeed = {
-  // getProducts: () => {
-  //   const productList = mockProductData.data.map((product) =>
-  //     product.Value.toLowerCase()
-  //   );
-  //   return productList;
-  // },
-
-  // getSymbols: (product) => {
-  //   const data = mockSymbolData[product.toUpperCase()];
-  //   const symbolList = data
-  //     ? data.map((symbol: any) => {
-  //         return {
-  //           identifier: symbol.Identifier.toLowerCase(),
-  //           product: symbol.Product.toLowerCase(),
-  //           tradeType: symbol.Name.toUpperCase(),
-  //           optionType: symbol.OptionType.toUpperCase(),
-  //         };
-  //       })
-  //     : [];
-  //   return symbolList as SymbolListType;
-  // },
-
   getProducts: async (resolveCallback, rejectCallback) => {
-    try {
-      const data = await fetchProducts();
-      resolveCallback(data);
-      console.log("getProducts datafeed socket: ", Socket);
-      // eslint-disabled-next-line
-    } catch (err: any) {
-      rejectCallback(err);
-    }
+    const request = {
+      MessageType: "GetProducts",
+      Exchange: "NFO",
+    };
+
+    Socket.sendRequest(request, "ProductsResult", (eventResult) => {
+      const productList = eventResult.Result.map((item: any) => item.Value);
+      resolveCallback(productList);
+    });
+
+    false && rejectCallback(new Error("[getProducts]: Something went wrong!"));
   },
 
   getSymbols: async (product, resolveCallback, rejectCallback) => {
