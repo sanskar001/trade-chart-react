@@ -2,7 +2,7 @@ import React from "react";
 import "./global.css";
 import ChartWidget from "@components/ChartWidget";
 import { ChartWidgetOptionsType } from "@ChartWidget/type";
-import { mockDatafeed } from "@/repo/datafeed";
+import { datafeed } from "@/repo/datafeed";
 
 const chartWidgetOptions: ChartWidgetOptionsType = {
   symbol: {
@@ -11,7 +11,7 @@ const chartWidgetOptions: ChartWidgetOptionsType = {
     tradeType: "FUTSTK",
     optionType: "XX",
   },
-  datafeed: mockDatafeed,
+  datafeed: datafeed,
   style: {
     width: "100%",
     maxWidth: "1000px",

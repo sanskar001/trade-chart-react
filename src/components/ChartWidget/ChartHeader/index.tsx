@@ -11,7 +11,7 @@ const ChartHeader: React.FC = () => {
       <div className="h-[40px] bg-white flex items-center p-[2px]">
         <SelectSymbol />
         <SelectResolution />
-        <div className="ml-4 text-sm">{symbol.identifier}</div>
+        <div className="ml-4 uppercase text-sm">{symbol.identifier}</div>
       </div>
     </div>
   );

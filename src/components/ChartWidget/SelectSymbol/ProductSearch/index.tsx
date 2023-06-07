@@ -1,8 +1,8 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import SearchField from "@/theme/SearchField";
 import ProductFilter from "./ProductFilter";
 import ProductGroup from "./ProductGroup";
-import { mockDatafeed } from "@/repo/datafeed";
+import { datafeed } from "@/repo/datafeed";
 import { Product, ProductList } from "@ChartWidget/type";
 
 interface ProductSearchProps {
@@ -11,10 +11,13 @@ interface ProductSearchProps {
 
 const ProductSearch: React.FC<ProductSearchProps> = ({ onSelect }) => {
   const [searchValue, setSearchValue] = useState<string>("");
+  const [productList, setProductList] = useState<ProductList>([]);
 
-  const productList: ProductList = useMemo(() => {
-    const data = mockDatafeed.getProducts();
-    return data.map((product) => product);
+  useEffect(() => {
+    datafeed.getProducts(
+      (val) => setProductList(val),
+      (err) => alert(err)
+    );
   }, []);
 
   const filteredProductList = useMemo(() => {

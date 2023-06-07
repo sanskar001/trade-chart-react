@@ -1,8 +1,8 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import SearchField from "@/theme/SearchField";
 import SymbolFilter, { TradeType } from "./SymbolFilter";
 import SymbolGroup from "./SymbolGroup";
-import { mockDatafeed } from "@/repo/datafeed";
+import { datafeed } from "@/repo/datafeed";
 import { SymbolListType, SymbolType } from "@ChartWidget/type";
 
 interface SymbolSearchProps {
@@ -16,11 +16,15 @@ const SymbolSearch: React.FC<SymbolSearchProps> = ({
 }) => {
   const [searchValue, setSearchValue] = useState<string>("");
   const [tradeType, setTradeType] = useState<TradeType>(TradeType.all);
+  const [symbolList, setSymbolList] = useState<SymbolListType>([]);
 
-  const symbolList: SymbolListType = useMemo(
-    () => mockDatafeed.getSymbols(product),
-    []
-  );
+  useEffect(() => {
+    datafeed.getSymbols(
+      product,
+      (val) => setSymbolList(val),
+      (err) => alert(err)
+    );
+  }, []);
 
   const filteredSymbolList: SymbolListType = useMemo(() => {
     return symbolList
