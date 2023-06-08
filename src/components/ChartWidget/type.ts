@@ -3,7 +3,7 @@ export type TradeType = "FUTIDX" | "FUTSTK" | "OPTSTK" | "OPTIDX";
 
 export interface SymbolType {
   identifier: string;
-  product: string;
+  product: Product;
   tradeType: TradeType;
   optionType: OptionType;
 }
@@ -17,6 +17,21 @@ export type ProductList = Array<Product>;
 // --------------------------------------------------------------------------
 
 export type Resolution = string;
+
+// --------------------------------------------------------------------------
+
+type Time = number;
+type Price = number;
+export interface Candle {
+  time: Time;
+  low: Price;
+  high: Price;
+  open: Price;
+  close: Price;
+  volume: Price;
+}
+
+export type CandleList = Array<Candle>;
 
 // --------------------------------------------------------------------------
 
@@ -34,9 +49,17 @@ type GetSymbolsHandler = (
   _rejectCallback: RejectCallback
 ) => void;
 
+type GetHistoryHandler = (
+  _symbol: SymbolType,
+  _resolution: Resolution,
+  _resolveCallback: ResolveCallback<CandleList>,
+  _rejectCallback: RejectCallback
+) => void;
+
 export interface Datafeed {
   getProducts: GetProductsHandler;
   getSymbols: GetSymbolsHandler;
+  getHistory: GetHistoryHandler;
 }
 
 // --------------------------------------------------------------------------

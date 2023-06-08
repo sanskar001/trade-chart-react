@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useContext } from "react";
 import {
   ChartOptions,
   DeepPartial,
@@ -7,8 +7,11 @@ import {
 } from "lightweight-charts";
 import stockData from "@/mocks/trade-data.json";
 import { CandleSeriesDataType } from "./type";
+import { ChartContext } from "@/store/chart-context";
 
 const Chart: React.FC = () => {
+  const { symbol, resolution } = useContext(ChartContext);
+
   const chartContainerRef =
     useRef<HTMLElement>() as React.MutableRefObject<HTMLElement>;
 
@@ -55,7 +58,7 @@ const Chart: React.FC = () => {
       const { clientWidth, clientHeight } = chartContainerRef.current;
       chart.resize(clientWidth, clientHeight);
     });
-  }, []);
+  }, [symbol, resolution]);
 
   return (
     <div

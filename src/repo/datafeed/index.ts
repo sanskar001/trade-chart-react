@@ -53,4 +53,22 @@ export const datafeed: Datafeed = {
 
     false && rejectCallback(new Error("[getSymbols]: Something went wrong!"));
   },
+
+  getHistory(symbol, resolution, resolveCallback, rejectCallback) {
+    console.log("getHistory datafeed:", { symbol, resolution });
+    const request = {
+      MessageType: "GetHistory",
+      Exchange: "NFO",
+      InstrumentIdentifier: symbol.identifier,
+      Periodicity: "MINUTE",
+      Period: 1,
+      // From: 0,
+      // To: 0,
+    };
+
+    console.log(request);
+
+    false && resolveCallback([]);
+    false && rejectCallback(new Error(""));
+  },
 };
