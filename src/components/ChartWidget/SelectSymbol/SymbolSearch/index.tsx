@@ -22,7 +22,7 @@ const SymbolSearch: React.FC<SymbolSearchProps> = ({
     datafeed.getSymbols(
       product,
       (val) => setSymbolList(val),
-      (err) => alert(err)
+      (err) => alert(err.message)
     );
   }, []);
 

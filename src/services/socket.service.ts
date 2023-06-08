@@ -61,9 +61,7 @@ export class FetchSocket {
     resolveCallback: ResolveCallback
   ) {
     const msgType = messageType.toLowerCase();
-    if (!messageObject.hasOwnProperty(msgType)) {
-      messageObject[msgType] = resolveCallback;
-    }
+    messageObject[msgType] = resolveCallback;
 
     const jsonRequest = JSON.stringify(request);
     this.instance.send(jsonRequest);

@@ -15,17 +15,14 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ onSelect }) => {
 
   useEffect(() => {
     datafeed.getProducts(
-      (val) => {
-        console.log(val);
-        setProductList(val);
-      },
-      (err) => alert(err)
+      (val) => setProductList(val),
+      (err) => alert(err.message)
     );
   }, []);
 
   const filteredProductList = useMemo(() => {
     return productList.filter((product) =>
-      product.includes(searchValue.toLowerCase())
+      product.includes(searchValue.trim().toLowerCase())
     );
   }, [productList, searchValue]);
 
