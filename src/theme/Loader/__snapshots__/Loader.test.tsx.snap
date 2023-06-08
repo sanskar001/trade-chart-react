@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly when there is default loader 1`] = `
+<div
+  className="spinner"
+/>
+`;
+
+exports[`renders correctly when there is loader with custom style 1`] = `
+<div
+  className="spinner"
+  style={
+    Object {
+      "color": "orange",
+      "height": "64px",
+      "width": "64px",
+    }
+  }
+/>
+`;

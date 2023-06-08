@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useCallback, useState } from "react";
+import Loader from "@/theme/Loader";
 import SearchField from "@/theme/SearchField";
 import ProductFilter from "./ProductFilter";
 import ProductGroup from "./ProductGroup";
@@ -10,15 +11,26 @@ interface ProductSearchProps {
 }
 
 const ProductSearch: React.FC<ProductSearchProps> = ({ onSelect }) => {
+  const [loading, setLoading] = useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>("");
   const [productList, setProductList] = useState<ProductList>([]);
 
-  useEffect(() => {
+  const getProductHandler = useCallback(() => {
+    setLoading(true);
+
     datafeed.getProducts(
-      (val) => setProductList(val),
-      (err) => alert(err.message)
+      (val) => {
+        setProductList(val);
+        setLoading(false);
+      },
+      (err) => {
+        alert(err.message);
+        setLoading(false);
+      }
     );
   }, []);
+
+  useEffect(getProductHandler, []);
 
   const filteredProductList = useMemo(() => {
     return productList.filter((product) =>
@@ -36,10 +48,16 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ onSelect }) => {
         selectedValue={searchValue.toLowerCase()}
         onSelect={(val) => setSearchValue(val)}
       />
-      <ProductGroup
-        productList={filteredProductList}
-        onSelect={(prod) => onSelect(prod)}
-      />
+      {loading ? (
+        <div className="h-full flex items-center justify-center">
+          <Loader />
+        </div>
+      ) : (
+        <ProductGroup
+          productList={filteredProductList}
+          onSelect={(prod) => onSelect(prod)}
+        />
+      )}
     </div>
   );
 };
