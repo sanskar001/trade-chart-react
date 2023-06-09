@@ -6,10 +6,10 @@ import { datafeed, initSocket } from "@/repo/datafeed";
 
 const chartWidgetOptions: ChartWidgetOptionsType = {
   symbol: {
-    identifier: "FUTSTK_RELIANCE_15JUL2021_XX_4200",
+    identifier: "OPTSTK_RELIANCE_29JUN2023_PE_2740",
     product: "RELIANCE",
-    tradeType: "FUTSTK",
-    optionType: "XX",
+    tradeType: "OPTSTK",
+    optionType: "PE",
   },
   datafeed: datafeed,
   style: {

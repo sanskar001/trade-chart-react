@@ -1,5 +1,5 @@
 import React from "react";
-import Chart from "./Chart";
+import ChartBody from "./ChartBody";
 import ChartHeader from "./ChartHeader";
 import ChartFooter from "./ChartFooter";
 import ChartProvider from "@/store/ChartProvider";
@@ -18,7 +18,7 @@ const ChartWidget: React.FC<ChartWidgetType> = ({ options }) => {
         className="max-w-[80vw] max-h-[100vh] flex flex-col border border-linen-orange relative"
       >
         <ChartHeader />
-        <Chart />
+        <ChartBody />
         <ChartFooter />
       </div>
     </ChartProvider>

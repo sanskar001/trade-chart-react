@@ -62,13 +62,24 @@ export const datafeed: Datafeed = {
       InstrumentIdentifier: symbol.identifier,
       Periodicity: "MINUTE",
       Period: 1,
-      // From: 0,
-      // To: 0,
     };
 
-    console.log(request);
+    socket.sendRequest(request, "HistoryOHLCResult", (eventData) => {
+      const historyResult = eventData.Result.map((item: any) => {
+        return {
+          time: item.LastTradeTime,
+          open: item.Open,
+          close: item.Close,
+          low: item.Low,
+          high: item.High,
+          volume: item.TradedQty,
+        };
+      });
 
-    false && resolveCallback([]);
-    false && rejectCallback(new Error(""));
+      historyResult.reverse();
+      resolveCallback(historyResult);
+    });
+
+    false && rejectCallback(new Error("[getSymbols]: Something went wrong!"));
   },
 };

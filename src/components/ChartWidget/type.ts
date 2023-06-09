@@ -35,6 +35,7 @@ export type CandleList = Array<Candle>;
 
 // --------------------------------------------------------------------------
 
+type HistoryResult = CandleList;
 type ResolveCallback<T> = (_val: T) => void;
 type RejectCallback = (_err: Error) => void;
 
@@ -52,7 +53,7 @@ type GetSymbolsHandler = (
 type GetHistoryHandler = (
   _symbol: SymbolType,
   _resolution: Resolution,
-  _resolveCallback: ResolveCallback<CandleList>,
+  _resolveCallback: ResolveCallback<HistoryResult>,
   _rejectCallback: RejectCallback
 ) => void;
 

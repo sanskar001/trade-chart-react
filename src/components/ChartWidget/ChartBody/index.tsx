@@ -6,10 +6,11 @@ import {
   createChart,
 } from "lightweight-charts";
 import stockData from "@/mocks/trade-data.json";
-import { CandleSeriesDataType } from "./type";
+import { CandleSeriesDataType } from "./Chart/type";
 import { ChartContext } from "@/store/chart-context";
+import { datafeed } from "@/repo/datafeed";
 
-const Chart: React.FC = () => {
+const ChartBody: React.FC = () => {
   const { symbol, resolution } = useContext(ChartContext);
 
   const chartContainerRef =
@@ -50,7 +51,6 @@ const Chart: React.FC = () => {
       };
     });
     updatedStockData.reverse();
-
     candlestickSeries.setData(updatedStockData);
 
     // AutoSizing chartWidget
@@ -58,6 +58,17 @@ const Chart: React.FC = () => {
       const { clientWidth, clientHeight } = chartContainerRef.current;
       chart.resize(clientWidth, clientHeight);
     });
+  }, []);
+
+  useEffect(() => {
+    datafeed.getHistory(
+      symbol,
+      resolution,
+      (val) => {
+        console.log("useEffect Chart", val);
+      },
+      (err) => alert(err.message)
+    );
   }, [symbol, resolution]);
 
   return (
@@ -68,4 +79,4 @@ const Chart: React.FC = () => {
   );
 };
 
-export default Chart;
+export default ChartBody;
