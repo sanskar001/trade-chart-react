@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./global.css";
 import ChartWidget from "@components/ChartWidget";
 import { ChartWidgetOptionsType } from "@ChartWidget/type";
-import { datafeed, initSocket } from "@/repo/datafeed";
+import { datafeed } from "@/repo/datafeed";
 
 const chartWidgetOptions: ChartWidgetOptionsType = {
   symbol: {
@@ -24,9 +24,7 @@ const App: React.FC = () => {
   const [auth, setAuth] = useState<boolean>(false);
 
   useEffect(() => {
-    initSocket(() => {
-      setAuth(true);
-    });
+    setAuth(true);
   }, []);
 
   return (
