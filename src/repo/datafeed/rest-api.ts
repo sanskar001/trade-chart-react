@@ -13,7 +13,7 @@ import mockTradeData from "@/mocks/trade-data.json";
 
 export const fetchProducts = (): Promise<ProductList> => {
   return new Promise((resolve, reject) => {
-    if (Math.random() < 0.9) {
+    if (Math.random() < 1) {
       setTimeout(() => {
         resolve(
           mockProductData.data.map((product) => product.Value.toLowerCase())
@@ -38,7 +38,7 @@ export const fetchSymbols = (product: Product): Promise<SymbolListType> => {
       })
     : [];
   return new Promise((resolve, reject) => {
-    if (Math.random() < 0.9) {
+    if (Math.random() < 1) {
       setTimeout(() => {
         resolve(symbolList);
       }, 0);
@@ -67,7 +67,7 @@ export const fetchHistory = (
   historyData.reverse();
 
   return new Promise((resolve, reject) => {
-    if (Math.random() < 0.9) {
+    if (Math.random() < 1) {
       setTimeout(() => {
         resolve(historyData);
       }, 0);

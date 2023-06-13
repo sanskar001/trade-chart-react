@@ -1,81 +1,19 @@
-import React, { useRef, useEffect, useContext } from "react";
-import {
-  ChartOptions,
-  DeepPartial,
-  Time,
-  createChart,
-} from "lightweight-charts";
-import stockData from "@/mocks/trade-data.json";
-import { CandleSeriesDataType } from "./Chart/type";
+import React, { useContext } from "react";
+import Chart from "./Chart";
 import { ChartContext } from "@/store/chart-context";
-import { datafeed } from "@/repo/datafeed";
 
 const ChartBody: React.FC = () => {
   const { symbol, resolution } = useContext(ChartContext);
 
-  const chartContainerRef =
-    useRef<HTMLElement>() as React.MutableRefObject<HTMLElement>;
-
-  useEffect(() => {
-    const chartOptions: DeepPartial<ChartOptions> = {
-      rightPriceScale: {
-        borderVisible: false,
-      },
-      leftPriceScale: {
-        borderVisible: false,
-      },
-      timeScale: {
-        borderVisible: false,
-        timeVisible: true,
-        secondsVisible: true,
-      },
-    };
-
-    const chart = createChart(chartContainerRef.current, chartOptions);
-
-    const candlestickSeries = chart.addCandlestickSeries({
-      upColor: "#26a69a",
-      downColor: "#ef5350",
-      borderVisible: false,
-      wickUpColor: "#26a69a",
-      wickDownColor: "#ef5350",
-    });
-
-    const updatedStockData: CandleSeriesDataType = stockData.map((candle) => {
-      return {
-        time: candle.time as Time,
-        open: candle.open,
-        close: candle.close,
-        high: candle.high,
-        low: candle.low,
-      };
-    });
-    updatedStockData.reverse();
-    candlestickSeries.setData(updatedStockData);
-
-    // AutoSizing chartWidget
-    window.addEventListener("resize", () => {
-      const { clientWidth, clientHeight } = chartContainerRef.current;
-      chart.resize(clientWidth, clientHeight);
-    });
-  }, []);
-
-  useEffect(() => {
-    datafeed.getHistory(
-      symbol,
-      resolution,
-      (val) => {
-        console.log("useEffect Chart", val);
-      },
-      (err) => alert(err.message)
-    );
-  }, [symbol, resolution]);
-
   return (
-    <div
-      ref={chartContainerRef as React.LegacyRef<HTMLDivElement>}
-      className="flex-1 overflow-hidden"
-    ></div>
+    <div className="flex-1 overflow-hidden relative">
+      <div className="absolute top-0 left-0 p-2 text-sm uppercase bg-white z-[50]">
+        <p className="font-medium">
+          {symbol.identifier} &middot; {resolution}
+        </p>
+      </div>
+      <Chart />
+    </div>
   );
 };
 

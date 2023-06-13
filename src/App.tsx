@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "./global.css";
 import ChartWidget from "@components/ChartWidget";
 import { ChartWidgetOptionsType } from "@ChartWidget/type";
 import { datafeed } from "@/repo/datafeed";
+import "./global.css";
 
 const chartWidgetOptions: ChartWidgetOptionsType = {
   symbol: {
