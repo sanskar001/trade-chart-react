@@ -7,7 +7,7 @@ import { CandleList } from "@ChartWidget/type";
 
 const ChartBody: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(false);
-  const { symbol, resolution } = useContext(ChartContext);
+  const { symbol, resolution, chartType } = useContext(ChartContext);
   const [historyData, setHistoryData] = useState<CandleList>([]);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ const ChartBody: React.FC = () => {
     <div className="flex-1 overflow-hidden relative">
       <div className="absolute top-0 left-0 p-2 text-sm uppercase bg-white z-[50]">
         <p className="font-medium">
-          {symbol.identifier} &middot; {resolution}
+          {symbol.identifier} &middot; {resolution} &middot; {chartType}
         </p>
       </div>
       {loading ? <Loader /> : <Chart historyData={historyData} />}

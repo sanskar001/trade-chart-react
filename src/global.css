@@ -143,7 +143,7 @@
   }
 
   .drop-down .option-list {
-    @apply absolute top-full right-0 translate-y-1 max-h-[40vh] overflow-y-auto bg-inherit border shadow-modal z-50;
+    @apply absolute top-full right-0 translate-y-1 max-h-[40vh] overflow-y-auto bg-inherit border shadow-modal z-[200];
   }
 
   .drop-down .option {

@@ -15,7 +15,7 @@ const chartWidgetOptions: ChartWidgetOptionsType = {
   style: {
     width: "100%",
     maxWidth: "1200px",
-    height: "700px",
+    height: "750px",
   },
   other: "Something",
 };

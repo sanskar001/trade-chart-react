@@ -1,16 +1,16 @@
 import React from "react";
 
-interface OptionType {
-  value: string;
+interface OptionType<T> {
+  value: T;
   label: React.ReactNode;
   shortLabel?: React.ReactNode;
   isFrequent?: boolean;
 }
 
-export type OptionListType = Array<OptionType>;
+export type OptionListType<T> = Array<OptionType<T>>;
 
 export interface DropDownProps {
-  optionList: OptionListType;
+  optionList: OptionListType<string>;
   selectedValue: string;
   onSelect: (_value: string) => void;
   className?: string;

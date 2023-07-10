@@ -22,6 +22,10 @@ export type Resolution = string;
 
 // --------------------------------------------------------------------------
 
+export type ChartType = "candle" | "line" | "area";
+
+// --------------------------------------------------------------------------
+
 type Price = number;
 export interface Candle {
   time: Time;

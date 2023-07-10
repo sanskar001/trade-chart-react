@@ -23,6 +23,14 @@ const Chart: React.FC<ChartProps> = ({ historyData }) => {
         timeVisible: true,
         secondsVisible: true,
       },
+      grid: {
+        horzLines: {
+          color: "#d6dcde70",
+        },
+        vertLines: {
+          color: "#d6dcde70",
+        },
+      },
     };
 
     const chart = createChart(chartContainerRef.current, chartOptions);
@@ -37,8 +45,8 @@ const Chart: React.FC<ChartProps> = ({ historyData }) => {
 
     candlestickSeries.priceScale().applyOptions({
       scaleMargins: {
-        top: 0.05, // highest point of the series will be 10% away from the top
-        bottom: 0.15, // lowest point will be 40% away from the bottom
+        top: 0.05,
+        bottom: 0.15,
       },
     });
 

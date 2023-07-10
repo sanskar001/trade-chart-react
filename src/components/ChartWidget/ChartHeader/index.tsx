@@ -1,6 +1,7 @@
 import React from "react";
 import SelectSymbol from "../SelectSymbol";
 import SelectResolution from "../SelectResolution";
+import SelectChartType from "../SelectChartType";
 
 const ChartHeader: React.FC = () => {
   return (
@@ -8,6 +9,7 @@ const ChartHeader: React.FC = () => {
       <div className="h-[40px] bg-white flex items-center p-[2px]">
         <SelectSymbol />
         <SelectResolution />
+        <SelectChartType />
       </div>
     </div>
   );

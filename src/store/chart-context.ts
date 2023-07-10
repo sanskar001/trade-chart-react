@@ -9,10 +9,12 @@ const defaultValue: ChartContextType = {
     optionType: "CE",
   },
   resolution: "1D",
+  chartType: "candle",
 
   /* eslint-disable */
   setResolution: (_res) => undefined,
   setSymbol: (_symbol) => undefined,
+  setChartType: (_chartType) => undefined,
 };
 
 export const ChartContext = createContext(defaultValue);

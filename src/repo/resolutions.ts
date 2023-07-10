@@ -1,6 +1,7 @@
+import { Resolution } from "@/components/ChartWidget/type";
 import { OptionListType } from "@/theme/DropDown/type";
 
-export const resolutions: OptionListType = [
+export const resolutions: OptionListType<Resolution> = [
   {
     value: "1",
     label: "1 minute",

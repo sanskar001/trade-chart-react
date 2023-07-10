@@ -43,7 +43,7 @@ const SymbolModal: React.FC<SymbolModalProps> = ({ isShowModal, onClose }) => {
       onClose={modalCloseHandler}
       heading={modalHeading}
       footerText="Simply start typing while on the chart to pull up this search box"
-      modalClass="w-[85%] h-[80%]"
+      modalClass="max-w-[750px] w-[85%] h-[80%]"
     >
       {isSymbol ? (
         <SymbolSearch
