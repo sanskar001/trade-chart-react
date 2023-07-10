@@ -1,3 +1,5 @@
+import { Time } from "lightweight-charts";
+
 export type OptionType = "CE" | "PE" | "XX" | "FF";
 export type TradeType = "FUTIDX" | "FUTSTK" | "OPTSTK" | "OPTIDX";
 
@@ -20,7 +22,6 @@ export type Resolution = string;
 
 // --------------------------------------------------------------------------
 
-type Time = number;
 type Price = number;
 export interface Candle {
   time: Time;
@@ -28,7 +29,7 @@ export interface Candle {
   high: Price;
   open: Price;
   close: Price;
-  volume: Price;
+  volume?: Price;
 }
 
 export type CandleList = Array<Candle>;

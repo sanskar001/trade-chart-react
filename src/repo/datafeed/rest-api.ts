@@ -9,6 +9,7 @@ import {
 import mockProductData from "@/mocks/product-data.json";
 import { mockSymbolData } from "@/mocks/symbol-data";
 import mockTradeData from "@/mocks/trade-data.json";
+import { Time } from "lightweight-charts";
 // import { suffleArr } from "@/util/suffleArr";
 
 export const fetchProducts = (): Promise<ProductList> => {
@@ -18,7 +19,7 @@ export const fetchProducts = (): Promise<ProductList> => {
         resolve(
           mockProductData.data.map((product) => product.Value.toLowerCase())
         );
-      }, 0);
+      }, 500);
     } else {
       reject("[fetchProduct] Something went wrong!");
     }
@@ -41,7 +42,7 @@ export const fetchSymbols = (product: Product): Promise<SymbolListType> => {
     if (Math.random() < 1) {
       setTimeout(() => {
         resolve(symbolList);
-      }, 0);
+      }, 500);
     } else {
       reject("[fetchSymbols] Something went wrong!");
     }
@@ -55,7 +56,7 @@ export const fetchHistory = (
   console.log("fetchHistory", { symbol, resolution });
 
   const historyData: CandleList = mockTradeData.map((candle) => ({
-    time: candle.time,
+    time: candle.time as Time,
     open: candle.open,
     close: candle.close,
     low: candle.low,
@@ -70,7 +71,7 @@ export const fetchHistory = (
     if (Math.random() < 1) {
       setTimeout(() => {
         resolve(historyData);
-      }, 0);
+      }, 500);
     } else {
       reject("[fetchHistory] Something went wrong!");
     }

@@ -14,8 +14,8 @@ const chartWidgetOptions: ChartWidgetOptionsType = {
   datafeed: datafeed,
   style: {
     width: "100%",
-    maxWidth: "1000px",
-    height: "650px",
+    maxWidth: "1200px",
+    height: "700px",
   },
   other: "Something",
 };

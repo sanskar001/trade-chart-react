@@ -20,6 +20,9 @@ module.exports = {
       boxShadow: {
         modal: "0 2px 4px #0003",
       },
+      animation: {
+        loading: "spin 0.6s linear infinite",
+      },
     },
   },
   plugins: [],

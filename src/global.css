@@ -156,7 +156,7 @@
 
   /* --------------------- Loader --------------------- */
 
-  .spinner {
-    @apply w-12 h-12 aspect-square text-royal-blue border-4 border-current border-t-white rounded-full animate-spin;
+  .loader {
+    @apply w-12 h-12 aspect-square text-royal-blue border-4 border-current border-t-white rounded-full animate-loading;
   }
 }

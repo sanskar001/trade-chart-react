@@ -49,9 +49,7 @@ const ProductSearch: React.FC<ProductSearchProps> = ({ onSelect }) => {
         onSelect={(val) => setSearchValue(val)}
       />
       {loading ? (
-        <div className="h-full flex items-center justify-center">
-          <Loader />
-        </div>
+        <Loader />
       ) : (
         <ProductGroup
           productList={filteredProductList}

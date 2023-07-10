@@ -1,18 +1,12 @@
-import React, { useRef, useEffect, useContext } from "react";
-import {
-  ChartOptions,
-  DeepPartial,
-  Time,
-  createChart,
-} from "lightweight-charts";
-import stockData from "@/mocks/trade-data.json";
-import { CandleSeriesDataType } from "./type";
-import { ChartContext } from "@/store/chart-context";
-import { datafeed } from "@/repo/datafeed";
+import React, { useRef, useEffect } from "react";
+import { ChartOptions, DeepPartial, createChart } from "lightweight-charts";
+import { CandleList } from "@ChartWidget/type";
 
-const Chart: React.FC = () => {
-  const { symbol, resolution } = useContext(ChartContext);
+interface ChartProps {
+  historyData: CandleList;
+}
 
+const Chart: React.FC<ChartProps> = ({ historyData }) => {
   const chartContainerRef =
     useRef<HTMLElement>() as React.MutableRefObject<HTMLElement>;
 
@@ -41,35 +35,48 @@ const Chart: React.FC = () => {
       wickDownColor: "#ef5350",
     });
 
-    const updatedStockData: CandleSeriesDataType = stockData.map((candle) => {
+    candlestickSeries.priceScale().applyOptions({
+      scaleMargins: {
+        top: 0.05, // highest point of the series will be 10% away from the top
+        bottom: 0.15, // lowest point will be 40% away from the bottom
+      },
+    });
+
+    candlestickSeries.setData(historyData);
+
+    const volumeSeries = chart.addHistogramSeries({
+      color: "#26a69a",
+      priceFormat: {
+        type: "volume",
+      },
+      priceScaleId: "",
+    });
+
+    volumeSeries.priceScale().applyOptions({
+      scaleMargins: {
+        top: 0.8,
+        bottom: 0,
+      },
+    });
+
+    const volumeSeriesData = historyData.map((candle) => {
       return {
-        time: candle.time as Time,
-        open: candle.open,
-        close: candle.close,
-        high: candle.high,
-        low: candle.low,
+        time: candle.time,
+        value: candle.volume,
+        color: candle.open <= candle.close ? "#26a69a70" : "#ef535070",
       };
     });
-    updatedStockData.reverse();
-    candlestickSeries.setData(updatedStockData);
+
+    volumeSeries.setData(volumeSeriesData);
 
     // AutoSizing chartWidget
     window.addEventListener("resize", () => {
-      const { clientWidth, clientHeight } = chartContainerRef.current;
-      chart.resize(clientWidth, clientHeight);
+      if (chartContainerRef.current) {
+        const { clientWidth, clientHeight } = chartContainerRef.current;
+        chart.resize(clientWidth, clientHeight);
+      }
     });
   }, []);
-
-  useEffect(() => {
-    datafeed.getHistory(
-      symbol,
-      resolution,
-      (val) => {
-        console.log("useEffect Chart", val);
-      },
-      (err) => alert(err.message)
-    );
-  }, [symbol, resolution]);
 
   return (
     <div

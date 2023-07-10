@@ -1,9 +1,30 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Chart from "./Chart";
 import { ChartContext } from "@/store/chart-context";
+import { datafeed } from "@/repo/datafeed";
+import Loader from "@/theme/Loader";
+import { CandleList } from "@ChartWidget/type";
 
 const ChartBody: React.FC = () => {
+  const [loading, setLoading] = useState<boolean>(false);
   const { symbol, resolution } = useContext(ChartContext);
+  const [historyData, setHistoryData] = useState<CandleList>([]);
+
+  useEffect(() => {
+    setLoading(true);
+    datafeed.getHistory(
+      symbol,
+      resolution,
+      (val) => {
+        setHistoryData(val);
+        setLoading(false);
+      },
+      (err) => {
+        alert(err.message);
+        setLoading(false);
+      }
+    );
+  }, [symbol, resolution]);
 
   return (
     <div className="flex-1 overflow-hidden relative">
@@ -12,7 +33,7 @@ const ChartBody: React.FC = () => {
           {symbol.identifier} &middot; {resolution}
         </p>
       </div>
-      <Chart />
+      {loading ? <Loader /> : <Chart historyData={historyData} />}
     </div>
   );
 };

@@ -5,7 +5,11 @@ interface LoaderProps {
 }
 
 const Loader: React.FC<LoaderProps> = ({ style }) => {
-  return <div className="spinner" style={style}></div>;
+  return (
+    <div className="h-full flex items-center justify-center">
+      <div className="loader" style={style}></div>
+    </div>
+  );
 };
 
 export default Loader;

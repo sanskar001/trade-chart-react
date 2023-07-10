@@ -55,9 +55,7 @@ const SymbolSearch: React.FC<SymbolSearchProps> = ({
         onSelect={(val) => setTradeType(val)}
       />
       {loading ? (
-        <div className="h-full flex items-center justify-center">
-          <Loader />
-        </div>
+        <Loader />
       ) : (
         <SymbolGroup
           symbolList={filteredSymbolList}
