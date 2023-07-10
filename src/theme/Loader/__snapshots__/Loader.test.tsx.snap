@@ -2,19 +2,27 @@
 
 exports[`renders correctly when there is default loader 1`] = `
 <div
-  className="spinner"
-/>
+  className="h-full flex items-center justify-center"
+>
+  <div
+    className="loader"
+  />
+</div>
 `;
 
 exports[`renders correctly when there is loader with custom style 1`] = `
 <div
-  className="spinner"
-  style={
-    Object {
-      "color": "orange",
-      "height": "64px",
-      "width": "64px",
+  className="h-full flex items-center justify-center"
+>
+  <div
+    className="loader"
+    style={
+      Object {
+        "color": "orange",
+        "height": "64px",
+        "width": "64px",
+      }
     }
-  }
-/>
+  />
+</div>
 `;
