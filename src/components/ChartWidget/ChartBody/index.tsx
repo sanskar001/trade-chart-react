@@ -33,7 +33,11 @@ const ChartBody: React.FC = () => {
           {symbol.identifier} &middot; {resolution} &middot; {chartType}
         </p>
       </div>
-      {loading ? <Loader /> : <Chart historyData={historyData} />}
+      {loading ? (
+        <Loader />
+      ) : (
+        <Chart historyData={historyData} chartType={chartType} />
+      )}
     </div>
   );
 };
