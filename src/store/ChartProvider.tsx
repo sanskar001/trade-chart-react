@@ -9,7 +9,7 @@ const ChartProvider: React.FC<ChartProviderProps> = ({
 }) => {
   const [symbol, setSymbol] = useState<SymbolType>(defaultSymbol);
   const [resolution, setResolution] = useState<Resolution>("1D");
-  const [chartType, setChartType] = useState<ChartType>("candle");
+  const [chartType, setChartType] = useState<ChartType>("line");
 
   const chartContext: ChartContextType = {
     resolution: resolution,

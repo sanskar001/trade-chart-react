@@ -23,6 +23,11 @@ export type CandleList = Array<Candle>;
 export type ChartContainer = string | HTMLElement;
 export type ChartType = "candle" | "line" | "area";
 export type SeriesApi = ISeriesApi<"Area" | "Line" | "Candlestick">;
+export interface ChartSeries {
+  candle: () => ISeriesApi<"Candlestick">;
+  line: () => ISeriesApi<"Line">;
+  area: () => ISeriesApi<"Area">;
+}
 
 // eslint-disable-next-line
 export type GetCandleStickData = (data: CandleList) => CandleStick[];
@@ -30,3 +35,9 @@ export type GetCandleStickData = (data: CandleList) => CandleStick[];
 export type GetLineData = (data: CandleList) => Point[];
 // eslint-disable-next-line
 export type GetAreaData = (data: CandleList) => Point[];
+
+export interface ChartData {
+  candle: GetCandleStickData;
+  line: GetLineData;
+  area: GetAreaData;
+}
