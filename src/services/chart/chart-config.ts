@@ -10,8 +10,12 @@ import {
 } from "lightweight-charts";
 
 export const Colors: { [key: string]: string } = {
-  tealGreen: "#26a69a70",
-  plumRed: "#ef535070",
+  profitGreen: "#26a69a",
+  lossRed: "#ef5350",
+  profitGreenLight: "#26a69a70",
+  lossRedLight: "#ef535070",
+  gridGray: "#d6dcde70",
+  darkBlue: "#2962ff",
 };
 
 export const chartOptions: DeepPartial<ChartOptions> = {
@@ -28,10 +32,10 @@ export const chartOptions: DeepPartial<ChartOptions> = {
   },
   grid: {
     horzLines: {
-      color: "#d6dcde70",
+      color: Colors.gridGray,
     },
     vertLines: {
-      color: "#d6dcde70",
+      color: Colors.gridGray,
     },
   },
 };
@@ -39,7 +43,7 @@ export const chartOptions: DeepPartial<ChartOptions> = {
 export const volumeSeriesOption: DeepPartial<
   HistogramStyleOptions & SeriesOptionsCommon
 > = {
-  color: "#26a69a",
+  color: Colors.profitGreen,
   priceFormat: {
     type: "volume",
   },
@@ -56,28 +60,29 @@ export const volumePriceScaleOption: DeepPartial<PriceScaleOptions> = {
 export const mainPriceScaleOption: DeepPartial<PriceScaleOptions> = {
   scaleMargins: {
     top: 0.05,
-    bottom: 0.15,
+    bottom: 0.1,
   },
 };
 
 export const lineSeriesOption: DeepPartial<
   LineStyleOptions & SeriesOptionsCommon
-> = { color: "#2962FF" };
+> = { color: Colors.darkBlue, lineWidth: 2 };
 
 export const candleStickSeriesOption: DeepPartial<
   CandlestickStyleOptions & SeriesOptionsCommon
 > = {
-  upColor: "#26a69a",
-  downColor: "#ef5350",
   borderVisible: false,
-  wickUpColor: "#26a69a",
-  wickDownColor: "#ef5350",
+  upColor: Colors.profitGreen,
+  downColor: Colors.lossRed,
+  wickUpColor: Colors.profitGreen,
+  wickDownColor: Colors.lossRed,
 };
 
 export const areaSeriesOption: DeepPartial<
   AreaStyleOptions & SeriesOptionsCommon
 > = {
-  lineColor: "#2962FF",
-  topColor: "#2962FF",
-  bottomColor: "rgba(41, 98, 255, 0.28)",
+  lineColor: Colors.darkBlue,
+  lineWidth: 2,
+  topColor: Colors.darkBlue + "66",
+  bottomColor: Colors.darkBlue + "00",
 };

@@ -50,9 +50,11 @@ export class TradeChart {
   }
 
   private createLineSeries(color?: string) {
+    if (color) {
+      lineSeriesOption["color"] = color;
+    }
     const lineSeries = this.instance.addLineSeries({
       ...lineSeriesOption,
-      color: color,
     });
     lineSeries.priceScale().applyOptions(mainPriceScaleOption);
     return lineSeries;
@@ -114,7 +116,10 @@ export class TradeChart {
       return {
         time: candle.time,
         value: candle.volume,
-        color: candle.open <= candle.close ? Colors.tealGreen : Colors.plumRed,
+        color:
+          candle.open <= candle.close
+            ? Colors.profitGreenLight
+            : Colors.lossRedLight,
       };
     });
     this.createVolumeSeries().setData(volumeSeriesData);
