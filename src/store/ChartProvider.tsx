@@ -4,15 +4,19 @@ import { ChartType, Resolution, SymbolType } from "@ChartWidget/type";
 import { ChartContextType, ChartProviderProps } from "./type";
 import { fetchLocalStoreState, setLocalStoreState } from "@/util/localStorage";
 
-const { resolution: res, chartType: cType } = fetchLocalStoreState();
+const localState = fetchLocalStoreState();
 
 const ChartProvider: React.FC<ChartProviderProps> = ({
   children,
   defaultSymbol,
 }) => {
   const [symbol, setSymbol] = useState<SymbolType>(defaultSymbol);
-  const [resolution, setResolution] = useState<Resolution>(res || "1D");
-  const [chartType, setChartType] = useState<ChartType>(cType || "candle");
+  const [resolution, setResolution] = useState<Resolution>(
+    localState?.resolution || "1D"
+  );
+  const [chartType, setChartType] = useState<ChartType>(
+    localState?.chartType || "candle"
+  );
 
   useEffect(() => {
     setLocalStoreState({ resolution, chartType });
