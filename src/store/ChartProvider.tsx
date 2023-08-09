@@ -34,6 +34,13 @@ const ChartProvider: React.FC<ChartProviderProps> = ({
     });
   };
 
+  const removeIndicatorHandler = (indicator: Indicator) => {
+    const updatedIndicators = indicators.filter(
+      (ind) => ind.value !== indicator.value
+    );
+    setIndicators(updatedIndicators);
+  };
+
   const chartContext: ChartContextType = {
     resolution: resolution,
     symbol: symbol,
@@ -43,6 +50,7 @@ const ChartProvider: React.FC<ChartProviderProps> = ({
     setResolution: (res) => setResolution(res),
     setChartType: (res) => setChartType(res),
     addIndicator: addIndicatorHandler,
+    removeIndicator: removeIndicatorHandler,
   };
 
   return (

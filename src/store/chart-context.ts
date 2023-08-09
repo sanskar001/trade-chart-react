@@ -17,6 +17,7 @@ const defaultValue: ChartContextType = {
   setSymbol: (_symbol) => undefined,
   setChartType: (_chartType) => undefined,
   addIndicator: (_indicator) => undefined,
+  removeIndicator: (_indicator) => undefined,
 };
 
 export const ChartContext = createContext(defaultValue);

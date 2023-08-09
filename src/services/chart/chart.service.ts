@@ -23,9 +23,11 @@ import {
 export class TradeChart {
   private readonly instance: IChartApi;
   private activeSeries: SeriesApi;
+  private indicatorSeriesList: SeriesApi[];
 
   constructor(container: ChartContainer) {
     this.instance = createChart(container, chartOptions);
+    this.indicatorSeriesList = [];
 
     window.addEventListener("resize", () => {
       if (container) {
@@ -129,5 +131,19 @@ export class TradeChart {
     this.activeSeries && this.instance.removeSeries(this.activeSeries);
     this.activeSeries = this.createSeries(chartType);
     this.activeSeries.setData(this.parseChartData(chartType, data));
+  }
+
+  public addIndicator(data: Point[], color?: string) {
+    const newSeries = this.createLineSeries(color || "#ff0000");
+    newSeries.setData(data);
+    this.indicatorSeriesList.push(newSeries);
+  }
+
+  public removeIndicator(indicatorIndex: number) {
+    const indicatorSeries = this.indicatorSeriesList[indicatorIndex];
+    indicatorSeries && this.instance.removeSeries(indicatorSeries);
+    this.indicatorSeriesList = this.indicatorSeriesList.filter(
+      (_, index) => index !== indicatorIndex
+    );
   }
 }

@@ -7,14 +7,13 @@ interface ChartProps {
   chartType: ChartType;
 }
 
-let tradeChart: TradeChart;
+export let tradeChart: TradeChart;
 
 const Chart: React.FC<ChartProps> = ({ historyData, chartType }) => {
   const chartContainerRef =
     useRef<HTMLElement>() as React.MutableRefObject<HTMLElement>;
 
   useEffect(() => {
-    console.log(tradeChart);
     tradeChart = new TradeChart(chartContainerRef.current);
     tradeChart.setVolumeSeriesData(historyData);
   }, []);

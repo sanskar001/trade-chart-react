@@ -14,6 +14,7 @@ export interface ChartContextType {
   setResolution: (_resolution: Resolution) => void;
   setChartType: (_chartType: ChartType) => void;
   addIndicator: (_indicator: Indicator) => void;
+  removeIndicator: (_indicator: Indicator) => void;
 }
 
 export interface ChartProviderProps {
