@@ -26,6 +26,14 @@ export type ChartType = "candle" | "line" | "area";
 
 // --------------------------------------------------------------------------
 
+export interface Indicator {
+  id: string;
+  value: string;
+  label: string;
+}
+
+// ---------------------------------------------------------------------------
+
 type Price = number;
 export interface Candle {
   time: Time;

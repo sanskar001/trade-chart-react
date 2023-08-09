@@ -10,11 +10,13 @@ const defaultValue: ChartContextType = {
   },
   resolution: "1D",
   chartType: "candle",
+  indicators: [],
 
   /* eslint-disable */
   setResolution: (_res) => undefined,
   setSymbol: (_symbol) => undefined,
   setChartType: (_chartType) => undefined,
+  addIndicator: (_indicator) => undefined,
 };
 
 export const ChartContext = createContext(defaultValue);
